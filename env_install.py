@@ -51,7 +51,8 @@ def start_package_installer():
         if ('%d' %pac_p_installer.returncode) != 0:
             print('\n[!] Please review the error, you may need to restart the installation.')
             print('[i] or if everything seams ok.. just wait.')
-            print('[i] returncode "0" is success.')
+            print('[i] returncode 0 == success.')
+            print('[i] ctl c to bail now!')
             print('[i] sleeping 10 seconds!')
             time.sleep(10)
         return
