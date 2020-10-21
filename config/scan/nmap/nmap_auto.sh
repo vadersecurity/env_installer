@@ -343,10 +343,10 @@ for line in $file; do
 			#echo "sslyze --regular $1 | tee recon/sslyze_$1_$port.txt"
 			echo "sslscan $1 | tee recon/sslscan_$1_$port.txt"
 			echo "gobuster dir -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt --random-agent -t 30 -k -x $pages -s 200,204,301,302,307,401,403,500 -u https://$1:$port -o recon/gobuster_$1_$port.txt"
-			echo "nikto -host https://$1:$port -ssl --useragent "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" | tee recon/nikto_$1_$port.txt"
+			echo "nikto -host https://$1:$port -ssl --useragent 'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0' | tee recon/nikto_$1_$port.txt"
 		else
 			echo "gobuster dir -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt --random-agent -t 30 -x $pages -s 200,204,301,302,307,401,403,500 -u http://$1:$port -o recon/gobuster_$1_$port.txt"
-			echo "nikto -host $1:$port --useragent "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" | tee recon/nikto_$1_$port.txt"
+			echo "nikto -host $1:$port --useragent 'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0' | tee recon/nikto_$1_$port.txt"
 		fi
 		echo ""
 	fi
