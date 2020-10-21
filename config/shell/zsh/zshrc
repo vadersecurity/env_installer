@@ -186,7 +186,7 @@ alias scp_resume='/usr/bin/rsync --partial --progress --rsh=ssh'
 alias nmap_tor='/usr/bin/sudo /usr/bin/proxychains nmap -Pn -sT -n -sV $1'
 alias nmap_vuln='/usr/bin/sudo /usr/bin/nmap -sV --script vuln $1'
 alias nmap_full='/usr/bin/sudo /usr/bin/nmap -v -sV -sC -p 1-65535 -T4 -A $1'
-alias nmap_auto='/usr/bin/sudo $GIT/Misc/nmapAutomator/./nmap_auto.sh'
+alias nmap_auto='/usr/bin/sudo $GIT/miscellaneous/nmapAutomator/./nmap_auto.sh'
 
 # masscan --
 # https://github.com/dogasantos/masstomap

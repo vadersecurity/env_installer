@@ -125,21 +125,39 @@ def start_local_config_setup():
         print('[i] This will be automated; but until then...\n')
         time.sleep(2)
 
-        """ create github / nmap_auto script directory -- """
-        c_github = subprocess.check_call(['/bin/mkdir', '-p', '%s/Github/Misc/nmapAutomator' % home]) 
-        print('[+] Creating Github directory: %d' %c_github)
-        shutil.copy('./config/scan/nmap/nmap_auto.sh', '%s/Github/Misc/nmapAutomator/' % home)
-
-        """ create templates / cherrytree script directory -- """
-        c_templates = subprocess.check_call(['/bin/mkdir', '-p', '%s/Github/Misc/Templates/Cherrytree' % home]) 
-        shutil.copy('./config/templates/cherrytree/default_target_teplate.ctb', '%s/Github/Misc/Templates/Cherrytree/' % home)
-        print('[+] Creating Templates directory: %d' %c_templates)
-
-        """ add $HOME/go -- """
+        """ add ~/go -- """
         c_godir = subprocess.check_call(['/bin/mkdir', '-p', '%s/go' % home]) 
         print('[+] Creating go directory: %d' %c_godir)
     except OSError as err:
         print('[!] Config installation failed.')
+        print('ERROR:', err)
+
+def github_dir_struct():
+    """ create github directory structure -- """
+    git_dir_struct = ['av-bypass', 'code-audit', 'custom_list', 'exploitation', 'intelligence-gathering', 'mobile-analysis', \
+                      'osx', 'password-recovery', 'pivoting', 'post-exploitation', 'powershell', 'pre-engagement', 'reporting', \
+                      'reversing', 'threat-modeling', 'vulnerability-analysis', 'webshells', 'windows-tools', 'wireless', \
+                      'miscellaneous']
+    try:
+        print('[+] Creating ~/Github directories:')
+        github_dir = "".join([home, '/Github'])
+        os.mkdir(github_dir, mode=0o755)
+        for git_dir in git_dir_struct:
+            c_git_dir = "".join([home, '/Github/', git_dir])
+            """ not a type-o / pythons dumb way of permissions -- """
+            os.mkdir(c_git_dir, mode=0o755)
+
+        """ copy existing files into place -- """
+        c_github = subprocess.check_call(['/bin/mkdir', '-p', '%s/Github/miscellaneous/nmapAutomator' % home]) 
+        print('[+] Creating Github directory: %d' %c_github)
+        shutil.copy('./config/scan/nmap/nmap_auto.sh', '%s/Github/miscellaneous/nmapAutomator/' % home)
+
+        """ create templates / cherrytree script directory -- """
+        c_templates = subprocess.check_call(['/bin/mkdir', '-p', '%s/Github/miscellaneous/Templates/Cherrytree' % home]) 
+        shutil.copy('./config/templates/cherrytree/default_target_teplate.ctb', '%s/Github/miscellaneous/Templates/Cherrytree/' % home)
+        print('[+] Creating Templates directory: %d' %c_templates)
+    except OSError as err:
+        print('[!] Directort creation failed.')
         print('ERROR:', err)
 
 def start_priv_config_setup():
@@ -215,6 +233,7 @@ if ( arg1 == 'install' ):
     time.sleep(2)
     home = zsh_install()
     start_local_config_setup()
+    github_dir_struct()
     install_missing_apps()
     start_priv_config_setup()
     update_shell()
