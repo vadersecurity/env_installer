@@ -49,8 +49,11 @@ def start_package_installer():
                                          stdin=None, stdout=None, stderr=None, shell=False)
         print('[+] Installing packages: %d' %pac_p_installer.returncode)
         if ('%d' %pac_p_installer.returncode) != 0:
-            print('[!] Please fix the error and restart the installation.')
-            sys.exit(-1)
+            print('\n[!] Please review the error, you may need to restart the installation.')
+            print('[i] or if everything seams ok.. just wait.')
+            print('[i] returncode "0" is success.')
+            print('[i] sleeping 10 seconds!')
+            time.sleep(10)
         return
     except subprocess.CalledProcessError as err:
         print('[!] Installation failed.')
@@ -59,12 +62,12 @@ def start_package_installer():
 
 def zsh_install():
     """ oh-my-zsh installation -- """
+    print('[+] Installing oh-my-zsh:')
     try:
-        print('[+] Installing oh-my-zsh:')
         home = str(path.dirname('/home/%s/') % arg2)
-        repo = "".join([home, '/.oh-my-zsh/'])
+        repo = "".join([home, '/.oh-my-zsh'])
         """ clone oh-my-zsh -- """
-        om_zsh_clone = subprocess.check_call(['/sbin/git', 'clone', 'https://github.com/ohmyzsh/ohmyzsh.git', repo])
+        om_zsh_clone = subprocess.check_call(['/bin/git', 'clone', 'https://github.com/ohmyzsh/ohmyzsh.git', repo])
         print('[+] Cloning repository: %d' %om_zsh_clone)
 
         """ check for existing .zshrc / back it up -- """
@@ -193,10 +196,10 @@ def install_missing_apps():
     try:
         yay_p_update = subprocess.check_call(['/sbin/yay', '-Syu'])
         print('[+] Updating packages: %d' %yay_p_update)
-        yay_p_installer = subprocess.check_call(['/sbin/yay', '-S', 'cherrytree-bin', 'bmz-cursor-theme-git', 'nerd-fonts-complete', 'virtualbox', \
+        yay_p_installer = subprocess.run(['/sbin/yay', '-S', 'cherrytree-bin', 'bmz-cursor-theme-git', 'nerd-fonts-complete', 'virtualbox', \
                                                  'docker', 'gotop', 'the_silver_searcher'], \
                                                 stdin=None, stdout=None, stderr=None, shell=False)
-        print('\n[+] Installing aur packages: %d' %yay_p_installer)
+        print('\n[+] Installing aur packages: %d' %yay_p_installer.returncode)
         print('[i] yay zsh archlinux plugin cmd ref:')
         print('[i] https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux\n')
         print('[i] enable docker: sudo systemctl enable docker')
