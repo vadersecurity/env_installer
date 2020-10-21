@@ -3,7 +3,7 @@
 # It is tailored for those that are very command line saavy.
 
 # Install --
-- sudo pacman -Syu git yay
+- sudo pacman -Syu git yay python
 - git clone https://github.com/vadersecurity/env_installer.git
 - cd env_installer ; python env_installer.py
 

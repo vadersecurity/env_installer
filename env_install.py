@@ -17,7 +17,7 @@ from os import path
 
 # deps --
 # install before running this script --
-# sudo pacman -Syu git yay
+# sudo pacman -Syu git yay python
 # git clone https://github.com/vadersecurity/env_installer.git
 # cd env_installer ; python env_install.py
 
