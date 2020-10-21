@@ -1,0 +1,240 @@
+[global_config]
+  dbus = False
+  focus = mouse
+  borderless = True
+  title_transmit_bg_color = "#555753"
+  inactive_color_offset = 0.704225352113
+  enabled_plugins = CustomCommandsMenu, InactivityWatch, TerminatorThemes, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
+  title_font = Hack Nerd Font 8
+[keybindings]
+  next_profile = <Shift><Alt>p
+[profiles]
+  [[default]]
+    background_type = transparent
+    cursor_color = "#f0cc09"
+    font = Hack Nerd Font 8
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#000000:#ff0000:#38de21:#ffe50a:#1460d2:#ff005d:#00bbbb:#bbbbbb:#555555:#f40e17:#3bd01d:#edc809:#5555ff:#ff55ff:#6ae3fa:#ffffff"
+    use_system_font = False
+  [[3024 Night]]
+    background_color = "#090300"
+    cursor_color = "#a5a2a2"
+    font = Hack Nerd Font 8
+    foreground_color = "#a5a2a2"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#090300:#db2d20:#01a252:#fded02:#01a0e4:#a16a94:#b5e4f4:#a5a2a2:#5c5855:#e8bbd0:#3a3432:#4a4543:#807d7c:#d6d5d4:#cdab53:#f7f7f7"
+    use_system_font = False
+  [[Afterglow]]
+    background_color = "#212121"
+    cursor_color = "#d0d0d0"
+    font = Hack Nerd Font 8
+    foreground_color = "#d0d0d0"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#151515:#ac4142:#7e8e50:#e5b567:#6c99bb:#9f4e85:#7dd6cf:#d0d0d0:#505050:#ac4142:#7e8e50:#e5b567:#6c99bb:#9f4e85:#7dd6cf:#f5f5f5"
+    use_system_font = False
+  [[Atom]]
+    background_color = "#161719"
+    background_darkness = 0.7
+    cursor_color = "#d0d0d0"
+    font = Hack Nerd Font 8
+    foreground_color = "#c5c8c6"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#888a85:#fd5ff1:#87c38a:#ffd7b1:#85befd:#b9b6fc:#85befd:#e0e0e0:#888a85:#fd5ff1:#94fa36:#f5ffa8:#96cbfe:#b9b6fc:#85befd:#e0e0e0"
+    use_system_font = False
+  [[Cobalt Neon]]
+    background_color = "#142838"
+    cursor_color = "#c4206f"
+    font = Hack Nerd Font 8
+    foreground_color = "#8ff586"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#142631:#ff2320:#3ba5ff:#e9e75c:#8ff586:#781aa0:#8ff586:#ba46b2:#fff688:#d4312e:#8ff586:#e9f06d:#3c7dd2:#8230a7:#6cbc67:#8ff586"
+    use_system_font = False
+  [[Cobalt2]]
+    background_color = "#132738"
+    cursor_color = "#f0cc09"
+    font = Hack Nerd Font 8
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#000000:#ff0000:#38de21:#ffe50a:#1460d2:#ff005d:#00bbbb:#bbbbbb:#555555:#f40e17:#3bd01d:#edc809:#5555ff:#ff55ff:#6ae3fa:#ffffff"
+    use_system_font = False
+  [[Dark Pastel]]
+    background_darkness = 0.75
+    cursor_color = "#bbbbbb"
+    font = Hack Nerd Font 8
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#555753:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#bbbbbb:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    use_system_font = False
+  [[Darkside]]
+    background_color = "#222324"
+    cursor_color = "#bbbbbb"
+    font = Hack Nerd Font 8
+    foreground_color = "#bababa"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#000000:#e8341c:#68c256:#f2d42c:#1c98e8:#8e69c9:#1c98e8:#bababa:#000000:#e05a4f:#77b869:#efd64b:#387cd3:#957bbe:#3d97e2:#bababa"
+    use_system_font = False
+  [[Molokai]]
+    background_color = "#121212"
+    cursor_color = "#bbbbbb"
+    font = Hack Nerd Font 8
+    foreground_color = "#bbbbbb"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#121212:#fa2573:#98e123:#dfd460:#1080d0:#8700ff:#43a8d0:#bbbbbb:#555555:#f6669d:#b1e05f:#fff26d:#00afff:#af87ff:#51ceff:#ffffff"
+    use_system_font = False
+  [[Monokai Vivid]]
+    background_color = "#121212"
+    background_darkness = 0.8
+    cursor_color = "#fb0007"
+    font = Hack Nerd Font 8
+    foreground_color = "#f9f9f9"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#121212:#fa2934:#98e123:#fff30a:#0443ff:#f800f8:#01b6ed:#ffffff:#838383:#f6669d:#b1e05f:#fff26d:#0443ff:#f200f6:#51ceff:#ffffff"
+    use_system_font = False
+  [[SpaceGray Eighties]]
+    background_color = "#222222"
+    cursor_color = "#bbbbbb"
+    font = Hack Nerd Font 8
+    foreground_color = "#bdbaae"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#15171c:#ec5f67:#81a764:#fec254:#5486c0:#bf83c1:#57c2c1:#efece7:#555555:#ff6973:#93d493:#ffd256:#4d84d1:#ff55ff:#83e9e4:#ffffff"
+    use_system_font = False
+  [[Zenburn]]
+    background_color = "#2e3436"
+    cursor_color = "#73635a"
+    font = Hack Nerd Font 8
+    foreground_color = "#dcdccc"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#4d4d4d:#705050:#60b48a:#f0dfaf:#506070:#dc8cc3:#8cd0d3:#dcdccc:#709080:#dca3a3:#c3bf9f:#e0cf9f:#94bff3:#ec93d3:#93e0e3:#ffffff"
+    use_system_font = False
+  [[solarized-dark]]
+    background_color = "#002b36"
+    background_darkness = 0.1
+    cursor_color = "#eee8d5"
+    font = Hack Nerd Font 8
+    foreground_color = "#eee8d5"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#586e75:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_system_font = False
+  [[solarized-light]]
+    background_color = "#eee8d5"
+    cursor_color = "#002b36"
+    font = Hack Nerd Font 8
+    foreground_color = "#002b36"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_system_font = False
+  [[Argonaut]]
+    background_color = "#0e1019"
+    cursor_color = "#ff0018"
+    font = Hack Nerd Font 8
+    foreground_color = "#fffaf4"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#232323:#ff000f:#8ce10b:#ffb900:#008df8:#6d43a6:#00d8eb:#ffffff:#444444:#ff2740:#abe15b:#ffd242:#0092ff:#9a5feb:#67fff0:#ffffff"
+    use_system_font = False
+  [[Chalkboard]]
+    background_color = "#29262f"
+    cursor_color = "#d9e6f2"
+    font = Hack Nerd Font 8
+    foreground_color = "#d9e6f2"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#000000:#c37372:#72c373:#c2c372:#7372c3:#c372c2:#72c2c3:#d9d9d9:#323232:#dbaaaa:#aadbaa:#dadbaa:#aaaadb:#dbaada:#aadadb:#ffffff"
+    use_system_font = False
+  [[Bloody]]
+    background_color = "#1e1f29"
+    cursor_color = "#f9dc5c"
+    font = Hack Nerd Font 8
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#2e3436:#ff512f:#b2ffa9:#fffd82:#3185fc:#dd2476:#66d7d1:#f2efea:#555753:#ff512f:#b2ffa9:#fffd82:#3185fc:#dd2476:#66d7d1:#f2efea"
+    use_system_font = False
+  [[Ayu mirage]]
+    background_color = "#212733"
+    background_darkness = 0.7
+    cursor_color = "#FFD580"
+    font = Hack Nerd Font 8
+    foreground_color = "#d9d7ce"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#212733:#ff3333:#bae67e:#ffd580:#5ccfe6:#d4bfff:#5ccfe6:#3d4752:#3e4b59:#ff3333:#bae67e:#ffd580:#5ccfe6:#d4bfff:#5ccfe6:#eeeeec"
+    use_system_font = False
+  [[Batman]]
+    background_color = "#1b1d1e"
+    background_darkness = 0.7
+    cursor_color = "#fcef0c"
+    font = Hack Nerd Font 8
+    foreground_color = "#6f6f6f"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#1b1d1e:#e6dc44:#c8be46:#f4fd22:#737174:#747271:#62605f:#c6c5bf:#505354:#fff78e:#fff27d:#feed6c:#919495:#9a9a9d:#a3a3a6:#dadbd6"
+    use_system_font = False
+  [[Relaxed]]
+    background_color = "#353a44"
+    background_darkness = 0.7
+    cursor_color = "#d9d9d9"
+    font = Hack Nerd Font 8
+    foreground_color = "#d9d9d9"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#151515:#bc5653:#909d63:#ebc17a:#6a8799:#b06698:#c9dfff:#d9d9d9:#636363:#bc5653:#a0ac77:#ebc17a:#7eaac7:#b06698:#acbbd0:#f7f7f7"
+    use_system_font = False
+  [[WildCherry]]
+    background_color = "#1f1726"
+    background_darkness = 0.7
+    cursor_color = "#dd00ff"
+    font = Hack Nerd Font 8
+    foreground_color = "#dafaff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#000507:#d94085:#2ab250:#ffd16f:#883cdc:#ececec:#c1b8b7:#fff8de:#009cc9:#da6bac:#f4dca5:#eac066:#308cba:#ae636b:#ff919d:#e4838d"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child0]]]
+      font = Hack Nerd Font 8
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      size = 900, 350
+      type = Window
+[plugins]

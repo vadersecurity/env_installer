@@ -1,0 +1,56 @@
+# ~/.config/termite/config
+
+[options]
+allow_bold = true
+font = Hack Nerd Font 8 
+icon_name = termite
+scrollback_lines = 10000
+
+[colors]
+foreground = #c0c5ce
+foreground_bold = #eee8d5
+cursor = #c0c5ce
+
+# background transparency (requires a compositor)
+# picom --config ~/.config/picom/picom.conf
+background = rgba(29, 35, 48, 0.95)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #28211c
+color8  = #666666
+color7  = #8a8986
+color15 = #baae9e
+
+# Red
+color1  = #cf6a4c
+color9  = #cf6a4c
+
+# Green
+color2  = #54be0d
+color10 = #54be0d
+
+# Yellow
+color3  = #f9ee98
+color11 = #f9ee98
+
+# Blue
+color4  = #5ea6ea
+color12 = #5ea6ea
+
+# Purple
+color5  = #9b859d
+color13 = #9b859d
+
+# Teal
+color6  = #afc4db
+color14 = #afc4db
+
+# Extra colors
+color16 = #cf7d34
+color17 = #937121
+color18 = #36312e
+color19 = #5e5d5c
+color20 = #797977
+color21 = #9d9b97
