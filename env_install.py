@@ -49,7 +49,7 @@ def start_package_installer():
                                          stdin=None, stdout=None, stderr=None, shell=False)
         print('[+] Installing packages: %d' %pac_p_installer.returncode)
         if ('%d' %pac_p_installer.returncode) != 0:
-            print('[!] Please fix the issue to continue installation.')
+            print('[!] Please fix the error and restart the installation.')
             sys.exit(-1)
         return
     except subprocess.CalledProcessError as err:
