@@ -155,11 +155,11 @@ fi
 alias zz="source ~/.zshrc"
 
 # sudo grc --
-# alias sudo='/usr/bin/sudo grc $1'
+# alias sudo='/sbin/sudo grc $1'
 
 # sync shutdown / reboot --
-alias zzzhr='/usr/bin/sudo sync -f && /usr/bin/sudo /sbin/shutdown now -r'
-alias zzzhn='/usr/bin/sudo sync -f && /usr/bin/sudo /sbin/shutdown now'
+alias zzzhr='/sbin/sudo sync -f && /sbin/sudo /sbin/shutdown now -r'
+alias zzzhn='/sbin/sudo sync -f && /sbin/sudo /sbin/shutdown now'
 
 # cli shortcuts --
 export GIT='$HOME/Github/'
@@ -174,7 +174,7 @@ alias rm="/bin/rm -v"
 alias p='/bin/ps -f'
 alias pf='/bin/ps -ef'
 alias cl='/bin/clear'
-alias t='/usr/bin/sudo grc tail -f -n 200'
+alias t='/sbin/sudo grc tail -f -n 200'
 alias dig="/usr/bin/dig +short +noshort"
 alias diff='/usr/bin/colordiff'
 alias tdate='/usr/bin/date "+%m%d%Y%M%S"'
@@ -183,15 +183,15 @@ alias nonempty="/usr/bin/egrep -v '^[ \t]*#|^$'"
 alias sgrep='/usr/bin/grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} $1'
 alias makepasswd='/bin/echo "exec pwgen: -s -y -1 21: " ; /usr/bin/pwgen -s -y -1 21'
 alias scp_resume='/usr/bin/rsync --partial --progress --rsh=ssh'
-alias nmap_tor='/usr/bin/sudo /usr/bin/proxychains nmap -Pn -sT -n -sV $1'
-alias nmap_vuln='/usr/bin/sudo /usr/bin/nmap -sV --script vuln $1'
-alias nmap_full='/usr/bin/sudo /usr/bin/nmap -v -sV -sC -p 1-65535 -T4 -A $1'
-alias nmap_auto='/usr/bin/sudo $GIT/miscellaneous/nmapAutomator/./nmap_auto.sh'
+alias nmap_tor='/sbin/sudo /usr/bin/proxychains nmap -Pn -sT -n -sV $1'
+alias nmap_vuln='/sbin/sudo /usr/bin/nmap -sV --script vuln $1'
+alias nmap_full='/sbin/sudo /usr/bin/nmap -v -sV -sC -p 1-65535 -T4 -A $1'
+alias nmap_auto='/sbin/sudo $GIT/miscellaneous/nmapAutomator/./nmap_auto.sh'
 
 # masscan --
 # https://github.com/dogasantos/masstomap
-alias masscan_nmap='/usr/bin/sudo /usr/bin/masscan -p1-65535 --rate 1000 --open -oL output.masscan $1'
-alias masstomap='/usr/bin/sudo /usr/bin/python $GIT/Scan/masstomap/masstomap.py -m output.masscan -o target.tcp'
+alias masscan_nmap='/sbin/sudo /usr/bin/masscan -p1-65535 --rate 1000 --open -oL output.masscan $1'
+alias masstomap='/sbin/sudo /usr/bin/python $GIT/Scan/masstomap/masstomap.py -m output.masscan -o target.tcp'
 
 # nikto recon --
 # https://developers.whatismybrowser.com/useragents/explore/software_name/googlebot/
@@ -217,11 +217,11 @@ alias binaryninja="LD_LIBRARY_PATH=$HOME/binaryninja/plugins $HOME/binaryninja/b
 # listeners --
 alias nc='/usr/bin/ncat $1'
 alias pyweb4='/usr/bin/python -m http.server 9001'
-alias pysmtp='/usr/bin/sudo /usr/bin/python -m smtpd -n -c DebuggingServer $1'
+alias pysmtp='/sbin/sudo /usr/bin/python -m smtpd -n -c DebuggingServer $1'
 alias rweb4='/usr/bin/ruby -run -e httpd . -p 9001'
-alias socat_listen='/usr/bin/sudo /usr/bin/socat file:`tty`,raw,echo=0 tcp-listen: $1'
+alias socat_listen='/sbin/sudo /usr/bin/socat file:`tty`,raw,echo=0 tcp-listen: $1'
 alias nc_hershell='/usr/bin/ncat --ssl --ssl-cert $GOPATH/src/github.com/lesnuages/hershell/server.pem --ssl-key server.key -lvp $1'
-alias nc_listen='/usr/bin/sudo /usr/bin/ncat -4 nc -lnvp $1'
+alias nc_listen='/sbin/sudo /usr/bin/ncat -4 nc -lnvp $1'
 alias nc_rlwrap='/usr/bin/rlwrap /usr/bin/ncat $1'
 alias stty_shell='/usr/bin/stty raw -echo; fg; reset'
 
@@ -251,7 +251,7 @@ alias ssl_genkeys='$GIT/Web/proxy2/setup_https_intercept.sh'
 # set PAYLOAD cmd/unix/reverse_netcat; set EXITFUNC thread; set ExitOnSession false ; rexploit -j -z
 # https://wiki.archlinux.org/index.php/Metasploit_Framework
 # https://www.postgresql.org/docs/8.0/sql-createuser.html
-alias msfc='/usr/bin/sudo /usr/bin/msfconsole -q'
+alias msfc='/sbin/sudo /usr/bin/msfconsole -q'
 
 # msf containerized --
 # latest metasploit v6 --
@@ -327,15 +327,15 @@ git_BUILD_SHA() {
 
 # update with creds is needed --
 start_cli_ProtonVpn() {
-    cd ~/.encrypted/proton_ovpn ; /usr/bin/sudo /usr/bin/openvpn --config $1 --auth-user-pass ~/.encrypted/creds.txt
+    cd ~/.encrypted/proton_ovpn ; /sbin/sudo /usr/bin/openvpn --config $1 --auth-user-pass ~/.encrypted/creds.txt
 }
 
 # wpa --
 # https://wiki.archlinux.org/index.php/wpa_supplicant
 # /usr/bin/wpa_passphrase MYSSID passphrase
 start_Wireless() {
-    /usr/bin/sudo /usr/bin/wpa_supplicant -B -i wlp59s0 -c /etc/wpa_supplicant/$1
-    /usr/bin/sudo /sbin/dhclient wlp59s0
+    /sbin/sudo /usr/bin/wpa_supplicant -B -i wlp59s0 -c /etc/wpa_supplicant/$1
+    /sbin/sudo /sbin/dhclient wlp59s0
 }
 
 # mm / shoutz @worldunruled --
