@@ -41,7 +41,7 @@ plugins=(
     docker
     urltools
     archlinux
-		ssh-agent
+    ssh-agent
     colored-man-pages
     zsh-autosuggestions
     zsh-syntax-highlighting
