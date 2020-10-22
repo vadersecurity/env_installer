@@ -36,11 +36,12 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 plugins=(
-    kubectl
+    #kubectl
     golang
     docker
     urltools
     archlinux
+		ssh-agent
     colored-man-pages
     zsh-autosuggestions
     zsh-syntax-highlighting
