@@ -63,6 +63,7 @@ Commands --
 Most custom commands expand off my map leader, keeping nvim as vanilla as possible.
 
 , - Map leader, nearly all my custom mappings starts with pressing the comma key
+  -> which-keys ( default )
 ,q - Sidebar filetree viewer (NERDTree)
 ,w - Sidebar classes, functions, variables list (TagBar)
 \ - Toggle both NERDTree and TagBar
@@ -79,6 +80,7 @@ Most custom commands expand off my map leader, keeping nvim as vanilla as possib
 ,vs - New terminal in vertical split
 ,d - Automatically generate Python docstrings while cursor is hovering above a function or class
 ,f - Fuzzy find a file (fzf)
+   -> note: sudo ln -sf /usr/bin/fd /usr/bin/fdfind
 ,g - Toggle Goyo mode (Goyo), super clean and minimalistic viewing mode
 ,h - Toggle rainbow parentheses highlighting
 ,j - Set filetype to "journal" which makes the syntax highlighting beautiful when working on regular text files and markdown
