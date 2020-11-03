@@ -34,7 +34,6 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'liuchengxu/vim-which-key'
-"Plug 'hsanson/vim-android'
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -64,16 +63,29 @@ call plug#end()
 let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
 
 """ Coloring
-color palenight
+" palenight options
+" https://github.com/drewtempelmeyer/palenight.vim
 set background=dark
+colorscheme palenight
 highlight Pmenu guibg=white guifg=black gui=bold
 highlight Comment gui=bold
 highlight Normal gui=none
 highlight NonText guibg=none
 syntax on
 
+let g:lightline = { 'colorscheme': 'palenight' }
+let g:airline_theme = "palenight"
+let g:palenight_terminal_italics=1
+
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 " Opaque Background (Comment out to use terminal's profile)
-set termguicolors
+"set termguicolors
 
 " Transparent Background (For i3 and compton)
 highlight Normal guibg=NONE ctermbg=NONE
@@ -103,7 +115,12 @@ let g:NERDTreeDirArrowCollapsible = '↡'
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
 let g:airline_section_warning = ''
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" limelight
+let g:limelight_conceal_guifg = '#5f5f5f'
+let g:limelight_default_coefficient = 0.7
+let g:limelight_priority = -1
 
 " Neovim :Terminal
 tmap <Esc> <C-\><C-n>
@@ -176,36 +193,6 @@ function! TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
-" Dracula Mode (Dark)
-function! ColorDracula()
-    let g:airline_theme=''
-    color dracula
-    IndentLinesEnable
-endfunction
-
-" Seoul256 Mode (Dark & Light)
-function! ColorSeoul256()
-    let g:airline_theme='silver'
-    color seoul256
-    IndentLinesDisable
-endfunction
-
-" Forgotten Mode (Light)
-function! ColorForgotten()
-    " Light airline themes: tomorrow, silver, alduin
-    " Light colors: forgotten-light, nemo-light
-    let g:airline_theme='tomorrow'
-    color forgotten-light
-    IndentLinesDisable
-endfunction
-
-" Zazen Mode (Black & White)
-function! ColorZazen()
-    let g:airline_theme='badcat'
-    color zazen
-    IndentLinesEnable
-endfunction
-
 """ Custom Mappings
 let mapleader=","
 nmap <leader>q :NERDTreeToggle<CR>
@@ -236,6 +223,12 @@ autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yap
 nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
+
+" Use alt + hjkl to resize windows
+nnoremap <M-j>    :resize -2<CR>
+nnoremap <M-k>    :resize +2<CR>
+nnoremap <M-h>    :vertical resize -2<CR>
+nnoremap <M-l>    :vertical resize +2<CR>
 
 " which-keys
 source $HOME/.config/nvim/keys/which-key.vim
