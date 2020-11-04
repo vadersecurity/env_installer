@@ -32,6 +32,10 @@ Install vundle --
 Fetch init.vim --
 - curl -sk 'https://raw.githubusercontent.com/cdowns71/stuffz/master/configs/nvim/init.vim' -o ~/.config/nvim/init.vim
 
+Which-Keys --
+- mkdir ~/.config/nvim/keys
+- curl -sk -O 'https://raw.githubusercontent.com/dualfade/stuffz/master/configs/nvim/keys/which-key.vim'
+
 - nvim +PlugInstall +UpdateRemotePlugins +qall
 - cp ~/.config/nvim/init.vim ~/.config/nvim/init.vim.save
 
