@@ -165,7 +165,7 @@ def github_dir_struct():
         shutil.copy('./config/templates/cherrytree/default_target_teplate.ctb', '%s/Github/miscellaneous/Templates/Cherrytree/' % home)
         print('[+] Creating Templates directory: %d' %c_templates)
     except OSError as err:
-        print('[!] Directort creation failed.')
+        print('[!] Directory creation failed.')
         print('ERROR:', err)
 
 def start_priv_config_setup():
