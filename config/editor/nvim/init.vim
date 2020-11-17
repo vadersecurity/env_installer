@@ -1,4 +1,4 @@
-""" Vim-Plug
+" Vim-Plug
 call plug#begin()
 
 " Aesthetics - Main
@@ -34,6 +34,8 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'liuchengxu/vim-which-key'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
