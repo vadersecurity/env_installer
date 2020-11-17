@@ -42,7 +42,7 @@ def start_package_installer():
     """ aur access needs to be setup """
     print('[+] Starting required package installation:')
     try:
-        pac_p_installer = subprocess.run(['/sbin/yay', '-S', 'zsh', 'picom', 'rofi', 'grc', 'tree', 'neovim', 'termite', \
+        pac_p_installer = subprocess.run(['/sbin/yay', '-S', 'zsh', 'picom', 'rofi', 'grc', 'tree', 'neovim', 'termite', 'ranger', \
                                           'terminator', 'fzf', 'fd', 'amass', 'gospider', 'go', 'eog', 'nautilus', 'gnome-screenshot', \
                                           'tmux', 'httpx', 'waybackurls', 'subfinder', 'zdns', 'hakrawler', 'screen', 'mlocate', 'nmap', \
                                           'gobuster', 'dirsearch'], \
