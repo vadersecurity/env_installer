@@ -3,6 +3,8 @@
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/bin:/usr/local/bin:/usr/sbin
 
 # tmux --
+# comment out the mux if you dont want it
+# by default --
 [[ $TMUX != "" ]] && export TERM="xterm-256color"
 if [ "$TMUX" = "" ]; then tmux; fi
 ZSH_TMUX_AUTOSTART="true"
@@ -165,7 +167,6 @@ alias zzzhn='/sbin/sudo sync -f && /sbin/sudo /sbin/shutdown now'
 
 # cli shortcuts --
 export GIT='$HOME/Github/'
-export VS='$HOME/go/src/github.com/VaderSecurity'
 
 # command alias --
 alias vim='/usr/bin/nvim'
@@ -197,9 +198,10 @@ alias masstomap='/sbin/sudo /usr/bin/python $GIT/Scan/masstomap/masstomap.py -m 
 
 # nikto recon --
 # https://developers.whatismybrowser.com/useragents/explore/software_name/googlebot/
-alias nikto_recon_gbot='cd  $GIT/Web/nikto/program && git fetch ; \
+# fetch nikto src for this --
+alias nikto_recon_gbot='cd $GIT/vulnerability-analysis/nikto/program && git fetch ; \
   git pull ; ./nikto.pl -timeout 30 -maxtime 10m --useragent "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" -host $1'
-alias nikto_recon_moz='cd $GIT/Web/nikto/program && git fetch ; \
+alias nikto_recon_moz='cd $GIT/vulnerability-analysis/nikto/program && git fetch ; \
   git pull ; ./nikto.pl -timeout 30 -maxtime 10m --useragent "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" -host $1'
 
 # copy / paste --
@@ -327,7 +329,7 @@ git_BUILD_SHA() {
     git rev-parse HEAD || echo "unknown"
 }
 
-# update with creds is needed --
+# update with creds as needed --
 start_cli_ProtonVpn() {
     cd ~/.encrypted/proton_ovpn ; /sbin/sudo /usr/bin/openvpn --config $1 --auth-user-pass ~/.encrypted/creds.txt
 }
