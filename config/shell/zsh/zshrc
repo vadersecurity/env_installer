@@ -141,6 +141,7 @@ alias gf='/usr/bin/git fetch ; /usr/bin/git pull'
 # yay alias --
 # clean local installation cache --
 alias yaccl='yay -Sc <<<y'
+alias yapkg='yay -G'
 
 # directory color --
 if [[ $OSTYPE = (darwin|freebsd)* ]]; then
