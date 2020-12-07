@@ -109,9 +109,9 @@ set cursorline
 """ Plugin Configurations
 
 " NERDTree
-let NERDTreeShowHidden=1
-let g:NERDTreeDirArrowExpandable = '↠'
-let g:NERDTreeDirArrowCollapsible = '↡'
+"let NERDTreeShowHidden=1
+"let g:NERDTreeDirArrowExpandable = '↠'
+"let g:NERDTreeDirArrowCollapsible = '↡'
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -197,7 +197,8 @@ endfunction
 
 """ Custom Mappings
 let mapleader=","
-nmap <leader>q :NERDTreeToggle<CR>
+"nmap <leader>q :NERDTreeToggle<CR>
+nmap <leader>q :CocCommand explorer<CR>
 nmap \ <leader>q
 nmap <leader>w :TagbarToggle<CR>
 nmap <leader>ee :Colors<CR>
@@ -226,11 +227,11 @@ nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
 
-" Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
+" Use alt + 6789 to resize windows
+nnoremap <M-6>    :resize -2<CR>
+nnoremap <M-7>    :resize +2<CR>
+nnoremap <M-8>    :vertical resize -2<CR>
+nnoremap <M-9>    :vertical resize +2<CR>
 
 " which-keys
 source $HOME/.config/nvim/keys/which-key.vim
