@@ -48,3 +48,7 @@
 - screenshots included
 - everything needs more testing
 - it's free; and hopefully useful ;)
+
+- todo:
+- add neovim package installer
+- add tmux config to installer
