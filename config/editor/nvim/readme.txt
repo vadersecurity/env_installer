@@ -61,7 +61,7 @@ ref:
 https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
 
 - install support ( python / ruby / golang / json / html / javascript ) by default
-:CocInstall coc-explorer coc-python coc-solargraph coc-go coc-json coc-html coc-tsserver coc-sh
+:CocInstall coc-explorer coc-python coc-solargraph coc-go coc-json coc-html coc-tsserver coc-sh coc-prettier
 
 Commands --
 Most custom commands expand off my map leader, keeping nvim as vanilla as possible.
