@@ -34,7 +34,7 @@ Fetch init.vim --
 
 Which-Keys --
 - mkdir ~/.config/nvim/keys
-- curl -sk -O 'https://raw.githubusercontent.com/dualfade/stuffz/master/configs/nvim/keys/which-key.vim -o ~/.config/nvim/keys/which-key.vim'
+- curl -sk 'https://raw.githubusercontent.com/dualfade/stuffz/master/configs/nvim/keys/which-key.vim -o ~/.config/nvim/keys/which-key.vim'
 
 - nvim +PlugInstall +UpdateRemotePlugins +qall
 - cp ~/.config/nvim/init.vim ~/.config/nvim/init.vim.save
