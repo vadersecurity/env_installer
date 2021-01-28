@@ -34,7 +34,12 @@ Fetch init.vim --
 
 Which-Keys --
 - mkdir ~/.config/nvim/keys
-- curl -sk 'https://raw.githubusercontent.com/dualfade/stuffz/master/configs/nvim/keys/which-key.vim -o ~/.config/nvim/keys/which-key.vim'
+- curl -sk 'https://raw.githubusercontent.com/dualfade/stuffz/master/configs/nvim/keys/which-key.vim' -o ~/.config/nvim/keys/which-key.vim 
+
+Snippets --
+- mkdir ~/.config/nvim/snippets
+- curl -sk 'https://raw.githubusercontent.com/dualfade/stuffz/master/configs/nvim/snippets/snippets.vim' -o ~/.config/nvim/snippets/snippets.vim
+- cd ~/.config/nvim/ ; git clone https://github.com/Shougo/neosnippet-snippets.git
 
 - nvim +PlugInstall +UpdateRemotePlugins +qall
 - cp ~/.config/nvim/init.vim ~/.config/nvim/init.vim.save
@@ -61,7 +66,7 @@ ref:
 https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
 
 - install support ( python / ruby / golang / json / html / javascript ) by default
-:CocInstall coc-explorer coc-python coc-solargraph coc-go coc-json coc-html coc-tsserver coc-sh coc-prettier
+:CocInstall coc-explorer coc-python coc-solargraph coc-go coc-json coc-html coc-tsserver coc-sh coc-prettier coc-snippets
 
 Commands --
 Most custom commands expand off my map leader, keeping nvim as vanilla as possible.
