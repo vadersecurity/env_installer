@@ -16,11 +16,11 @@ helix :: /tmp »
 
 Start Setup -- 
 - mkdir -p ~/.config/nvim
-- yain neovim python3 python-pip git curl python2-neovim python-pynvim python2-pynvim ruby-neovim xclip
+- yain neovim python3 python-pip git curl python2-neovim python-pynvim python2-pynvim ruby-neovim xclip python-msgpack
 - python3 -m pip install virtualenv
 - python3 -m virtualenv -p python3 ~/.config/nvim/env
 - source ~/.config/nvim/env/bin/activate
-- pip install neovim==0.2.6 jedi psutil setproctitle yapf
+- pip install neovim jedi psutil setproctitle yapf
 - deactivate
 - curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 - curl -fLo ~/.fonts/Iosevka\ Term\ Nerd\ Font\ Complete.ttf --create-dirs https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Iosevka/Regular/complete/Iosevka%20Term%20Nerd%20Font%20Complete.ttf
