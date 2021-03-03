@@ -43,7 +43,7 @@
 - neovim aliased to vim
 - for full neovim dev IDE w/ CoC language engine plugins
 - manual setup link --
-    -> https://github.com/vadersecurity/env_installer/tree/master/config/editor/nvim
+    -> https://github.com/vadersecurity/env_installer/tree/main/config/editor/nvim
 
 - screenshots included
 - everything needs more testing
