@@ -200,9 +200,9 @@ alias masstomap='/sbin/sudo /usr/bin/python $GIT/Scan/masstomap/masstomap.py -m 
 # https://developers.whatismybrowser.com/useragents/explore/software_name/googlebot/
 # fetch nikto src for this --
 alias nikto_recon_gbot='cd $GIT/vulnerability-analysis/nikto/program && git fetch ; \
-  git pull ; ./nikto.pl -timeout 30 -maxtime 10m --useragent "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" -host $1'
+  git pull ; ./nikto.pl -timeout 30 -maxtime 10m -useragent "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" -host $1'
 alias nikto_recon_moz='cd $GIT/vulnerability-analysis/nikto/program && git fetch ; \
-  git pull ; ./nikto.pl -timeout 30 -maxtime 10m --useragent "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" -host $1'
+  git pull ; ./nikto.pl -timeout 30 -maxtime 10m -useragent "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" -host $1'
 
 # copy / paste --
 alias pbcopy='/usr/bin/xclip -selection clipboard'
