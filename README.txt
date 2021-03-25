@@ -24,7 +24,6 @@
 - the_silver-searcher ( advanced grep )
 - fd-find ( advanced find w/ fzf integration )
 - extended grc.zsh
-- themed terminator configurations
 - themed termite
 - nerd-fonts
 - BMZ-cursor
