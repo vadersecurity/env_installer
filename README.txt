@@ -47,13 +47,13 @@
 - manual setup link --
     -> https://github.com/vadersecurity/env_installer/tree/main/config/editor/nvim
 
-- screenshots included
 - everything needs more testing
 - it's free; and hopefully useful ;)
 
 - todo:
 - add neovim package installer
 - add tmux config to installer
+- screenshots
 
 - themes / widgets:
 - https://github.com/lcpz/awesome-copycats
