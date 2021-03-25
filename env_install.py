@@ -42,8 +42,8 @@ def start_package_installer():
     """ aur access needs to be setup """
     print('[+] Starting required package installation:')
     try:
-        pac_p_installer = subprocess.run(['/sbin/yay', '-S', 'zsh', 'picom-jonaburg-git', 'rofi', 'grc', 'tree', 'neovim', 'termite', 'ranger', \
-                                          'terminator', 'fzf', 'fd', 'amass', 'gospider', 'go', 'eog', 'nautilus', 'gnome-screenshot', \
+        pac_p_installer = subprocess.run(['/sbin/yay', '-S', 'zsh', 'picom-jonaburg-git', 'rofi', 'grc', 'tree', 'neovim', 'termite',  \
+                                          'ranger', 'fzf', 'fd', 'amass', 'gospider', 'go', 'eog', 'nautilus', 'flameshot', \
                                           'tmux', 'httpx', 'waybackurls', 'subfinder', 'zdns', 'hakrawler', 'screen', 'mlocate', 'nmap', \
                                           'gobuster', 'dirsearch'], \
                                          stdin=None, stdout=None, stderr=None, shell=False)
@@ -107,7 +107,7 @@ def start_local_config_setup():
         shutil.move('%s/.config' % home, '%s/.config.save' % home)
 
     """ install config files for awesome wm 4.x """
-    d_cnf_dirs = ['termite', 'terminator', 'rofi', 'picom', 'nvim', 'awesome']
+    d_cnf_dirs = ['termite', 'rofi', 'picom', 'nvim', 'awesome']
     try:
         print('[+] Installing configuarion files:')
         dot_config = "".join([home, '/.config'])
@@ -120,7 +120,6 @@ def start_local_config_setup():
         """ copy config to ~/.config/<dir> -- """
         print('[+] Copying local configs into place.')
         shutil.copy('./config/termite/config', '%s/.config/termite/' % home)
-        shutil.copy('./config/terminator/config', '%s/.config/terminator/' % home)
         shutil.copy('./config/rofi/config.rasi', '%s/.config/rofi/' % home)
         shutil.copy('./config/picom/picom.conf', '%s/.config/picom/' % home)
         shutil.copy('./config/wm/awesome/autorun.sh', '%s/.config/awesome/' % home)
@@ -164,6 +163,7 @@ def github_dir_struct():
         c_templates = subprocess.check_call(['/bin/mkdir', '-p', '%s/Github/miscellaneous/Templates/Cherrytree' % home]) 
         shutil.copy('./config/templates/cherrytree/default_target_teplate.ctb', '%s/Github/miscellaneous/Templates/Cherrytree/' % home)
         print('[+] Creating Templates directory: %d' %c_templates)
+        print('[i] if you would like to use cherrytree, please run "yay -S cherrytree-bin" after installation completes')
     except OSError as err:
         print('[!] Directory creation failed.')
         print('ERROR:', err)
@@ -197,7 +197,7 @@ def install_missing_apps():
     try:
         yay_p_update = subprocess.check_call(['/sbin/yay', '-Syu'])
         print('[+] Updating packages: %d' %yay_p_update)
-        yay_p_installer = subprocess.run(['/sbin/yay', '-S', 'cherrytree', 'bmz-cursor-theme-git', 'nerd-fonts-complete', 'virtualbox', \
+        yay_p_installer = subprocess.run(['/sbin/yay', '-S', 'cherrytree', 'obsidian-appimage', 'bmz-cursor-theme-git', 'nerd-fonts-complete', 'virtualbox', \
                                                  'docker', 'gotop', 'the_silver_searcher'], \
                                                 stdin=None, stdout=None, stderr=None, shell=False)
         print('\n[+] Installing aur packages: %d' %yay_p_installer.returncode)

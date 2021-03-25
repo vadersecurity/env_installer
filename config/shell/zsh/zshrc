@@ -1,6 +1,7 @@
 # ~/.zshrc
 # @dualfade --
-export PATH=$HOME/.local/bin:$HOME/bin:/usr/bin:/usr/local/bin:/usr/sbin
+export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/bin
+export PATH=/usr/bin:/usr/local/bin:/usr/sbin:$PATH
 
 # tmux --
 # comment out the mux if you dont want it
@@ -12,10 +13,12 @@ ZSH_TMUX_AUTOSTART_ONCE="true"
 
 # go vars -- 
 export GOPATH=$HOME/go
-export GO111MODULE=on 
-#export GO111MODULE=auto
-#export GOPROXY=direct
+export GO111MODULE=on
 #export GOSUMDB=off
+
+# update custom go installtin path --
+# https://golang.org/dl/
+export PATH=/usr/local/go/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

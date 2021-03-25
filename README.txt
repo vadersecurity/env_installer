@@ -33,15 +33,17 @@
 -       - add displays.sh to autorun.sh
 -   - add your own
 - rofi simple switcher - drun / combi
-- picom transparency
+- picom-jonaburg-git transparency:
+      -> https://github.com/jonaburg/picom
 - golang / gotop default install
-- Base cherrytree attack template
+- obsidian-appimage
 - nautilus
 - eog
-- gnome-screenshot
+- flameshot:
+      -> https://github.com/flameshot-org/flameshot
 
 - neovim aliased to vim
-- for full neovim dev IDE w/ CoC language engine plugins
+- for full neovim dev IDE install w/ CoC language engine plugins
 - manual setup link --
     -> https://github.com/vadersecurity/env_installer/tree/main/config/editor/nvim
 
@@ -52,3 +54,7 @@
 - todo:
 - add neovim package installer
 - add tmux config to installer
+
+- themes / widgets:
+- https://github.com/lcpz/awesome-copycats
+- https://github.com/streetturtle/awesome-wm-widgets
