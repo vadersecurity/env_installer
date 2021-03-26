@@ -2,8 +2,7 @@
 # download and adjust to your needs --
 # @dualfade
 
-xrandr --output eDP-1 --primary
-xrandr --output eDP-1 --mode 1920x1080 --rate 60
-xrandr --output DP-1 --right-of eDP-1 --auto
-xrandr --output HDMI-2 --left-of eDP-1 --auto
-#xrandr --output HDMI-1 --right-of eDP-1 --auto
+/usr/bin/xrandr --output eDP1 --primary
+/usr/bin/xrandr --output eDP1 --mode 1920x1080 --rate 60
+/usr/bin/xrandr --output DP1 --left-of eDP1 --auto
+/usr/bin/xrandr --output DP3 --right-of eDP1 --mode 3440x1440 --auto
