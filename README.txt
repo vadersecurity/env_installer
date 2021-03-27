@@ -40,6 +40,7 @@
 - eog
 - flameshot:
       -> https://github.com/flameshot-org/flameshot
+- keepassxc
 
 - neovim aliased to vim
 - for full neovim dev IDE install w/ CoC language engine plugins
