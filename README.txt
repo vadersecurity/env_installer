@@ -24,7 +24,8 @@
 - the_silver-searcher ( advanced grep )
 - fd-find ( advanced find w/ fzf integration )
 - extended grc.zsh
-- themed termite
+- alacritty
+      - how to theme: https://github.com/rajasegar/alacritty-themes
 - nerd-fonts
 - BMZ-cursor
 - awful.spawn.with_shell autorun.sh
