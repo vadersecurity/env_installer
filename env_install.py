@@ -42,7 +42,7 @@ def start_package_installer():
     """ aur access needs to be setup """
     print('[+] Starting required package installation:')
     try:
-        pac_p_installer = subprocess.run(['/sbin/yay', '-S', 'zsh', 'picom-jonaburg-git', 'rofi', 'grc', 'tree', 'neovim', 'termite',  \
+        pac_p_installer = subprocess.run(['/sbin/yay', '-S', 'zsh', 'picom-jonaburg-git', 'rofi', 'grc', 'tree', 'neovim', 'alacritty',  \
                                           'ranger', 'fzf', 'fd', 'amass', 'gospider', 'go', 'eog', 'nautilus', 'flameshot', 'feh', \
                                           'tmux', 'httpx', 'waybackurls', 'subfinder', 'zdns', 'hakrawler', 'screen', 'mlocate', 'nmap', \
                                           'gobuster', 'dirsearch', 'keepassxc'], \
@@ -107,7 +107,7 @@ def start_local_config_setup():
         shutil.move('%s/.config' % home, '%s/.config.save' % home)
 
     """ install config files for awesome wm 4.x """
-    d_cnf_dirs = ['termite', 'rofi', 'picom', 'nvim', 'awesome']
+    d_cnf_dirs = ['alacritty', 'rofi', 'picom', 'nvim', 'awesome']
     try:
         print('[+] Installing configuarion files:')
         dot_config = "".join([home, '/.config'])
@@ -119,7 +119,7 @@ def start_local_config_setup():
 
         """ copy config to ~/.config/<dir> -- """
         print('[+] Copying local configs into place.')
-        shutil.copy('./config/termite/config', '%s/.config/termite/' % home)
+        shutil.copy('./config/alacritty/alacritty.yml', '%s/.config/alacritty/' % home)
         shutil.copy('./config/rofi/config.rasi', '%s/.config/rofi/' % home)
         shutil.copy('./config/picom/picom.conf', '%s/.config/picom/' % home)
         shutil.copy('./config/wm/awesome/autorun.sh', '%s/.config/awesome/' % home)
