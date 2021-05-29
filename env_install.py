@@ -43,7 +43,7 @@ def start_package_installer():
     print('[+] Starting required package installation:')
     try:
         pac_p_installer = subprocess.run(['/sbin/yay', '-S', 'zsh', 'picom-jonaburg-git', 'rofi', 'grc', 'tree', 'neovim', 'alacritty',  \
-                                          'ranger', 'fzf', 'fd', 'amass', 'gospider', 'go', 'eog', 'nautilus', 'flameshot', 'feh', \
+                                          'alacritty-themes', 'ranger', 'fzf', 'fd', 'amass', 'gospider', 'go', 'eog', 'nautilus', 'flameshot', 'feh', \
                                           'tmux', 'httpx', 'waybackurls', 'subfinder', 'zdns', 'hakrawler', 'screen', 'mlocate', 'nmap', \
                                           'gobuster', 'dirsearch', 'keepassxc'], \
                                          stdin=None, stdout=None, stderr=None, shell=False)

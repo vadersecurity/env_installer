@@ -25,10 +25,10 @@
 - fd-find ( advanced find w/ fzf integration )
 - extended grc.zsh
 - alacritty
-      - how to theme: https://github.com/rajasegar/alacritty-themes
+      -> themes: https://github.com/rajasegar/alacritty-themes
 - nerd-fonts
 - BMZ-cursor
-- awful.spawn.with_shell autorun.sh
+- awful.spawn.with_shell  autorun.sh
 -   - set screens and resolution
 -       - add displays.sh to autorun.sh
 -   - add your own
