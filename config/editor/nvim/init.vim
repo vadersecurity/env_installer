@@ -248,6 +248,10 @@ nnoremap <M-7>    :resize +2<CR>
 nnoremap <M-8>    :vertical resize -2<CR>
 nnoremap <M-9>    :vertical resize +2<CR>
 
+" clipboard
+" https://github.com/asvetliakov/vscode-neovim/issues/298
+set clipboard=unnamedplus
+
 " which-keys
 source $HOME/.config/nvim/keys/which-key.vim
 " snippets
