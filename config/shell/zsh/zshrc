@@ -11,7 +11,7 @@ if [ "$TMUX" = "" ]; then tmux; fi
 ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOSTART_ONCE="true"
 
-# go vars -- 
+# go vars --
 export GOPATH=$HOME/go
 export GO111MODULE=on
 #export GOSUMDB=off
@@ -93,7 +93,7 @@ export ARCHFLAGS="-arch x86_64"
 # ssh keys --
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# api tokens -- 
+# api tokens --
 export GITROB_ACCESS_TOKEN=''
 export HUNTER_API_KEY=''
 
@@ -108,8 +108,8 @@ source ~/.zplug/init.zsh
     ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # fzf --
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh 
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh 
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # grc --
@@ -242,7 +242,7 @@ alias HYDRA_PROXY_HTTP='export HYDRA_PROXY_HTTP=http://127.0.0.1:8080'
 alias youtube-dl-audio='youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" $1'
 alias youtube-dl-video='youtube-dl --recode-video mp4 $1'
 
-# vlc command line -- 
+# vlc command line --
 alias vlc_wpaper='/usr/bin/vlc -I dummy --video-wallpaper --fullscreen --equalizer-preset rock --play-and-exit $1'
 alias vlc_nwpaper='/usr/bin/vlc -I dummy --no-video --equalizer-preset rock  --play-and-exit $1'
 
@@ -256,7 +256,7 @@ alias ssl_genkeys='$GIT/Web/proxy2/setup_https_intercept.sh'
 
 # msfconsole --
 # we dont use this much anymore but it's great to have for a quick docker setup --
-# metasploit console / handler / reload module -- 
+# metasploit console / handler / reload module --
 # sudo msfconsole -q -x "use exploit/multi/handler; set LHOST tun0; set LPORT port; \
 # set PAYLOAD cmd/unix/reverse_netcat; set EXITFUNC thread; set ExitOnSession false ; rexploit -j -z
 # https://wiki.archlinux.org/index.php/Metasploit_Framework
