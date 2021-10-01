@@ -41,6 +41,8 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 plugins=(
+    grc
+    tmux
     #kubectl
     golang
     docker
@@ -111,7 +113,7 @@ source ~/.zplug/init.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # grc --
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+# [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
 # coloruze manpages --
 export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
