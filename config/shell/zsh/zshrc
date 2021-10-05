@@ -368,7 +368,7 @@ start_Enum() {
 
     # Getting URLS
     cat $1_domains | /usr/bin/httpx -silent | /usr/bin/waybackurls | tee $1_waybackurls
-    cat $1_domains | /usr/bin/httpx -silent | /usr/bin/hakrawler -depth 4 -plain | tee $1_hakrawler_urls
+    cat $1_domains | /usr/bin/httpx -silent | /usr/bin/hakrawler -d 4 | tee $1_hakrawler_urls
     /usr/bin/gospider -v --sites $1_hosts --user-agent "$UA" --threads 5 --depth 4 \
         --delay 1000 --no-redirect | tee $1_gospider_urls
     # if gau is not working --
