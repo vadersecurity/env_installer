@@ -1,5 +1,11 @@
 # ~/.zshrc
 # @dualfade --
+
+# disable magic_functions --
+# https://github.com/ohmyzsh/ohmyzsh/issues/5569
+DISABLE_MAGIC_FUNCTIONS=true
+
+# PATH --
 export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/bin
 export PATH=/usr/bin:/usr/local/bin:/usr/sbin:$PATH
 
