@@ -224,6 +224,13 @@ alias pbpaste='/usr/bin/xclip -selection clipboard -o'
 # https://github.com/cjbassi/gotop
 alias gotop='$HOME/go/bin/gotop -c vice -f -p'
 
+# https://github.com/projectdiscovery --
+# $HOME/go/bin/ --
+alias nuclei_update='GO111MODULE=on go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest'
+alias httpx_update='GO111MODULE=on go install github.com/projectdiscovery/httpx/cmd/httpx@latest'
+alias subfiner_update='GO111MODULE=on go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest'
+alias naabu_update='GO111MODULE=on go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest'
+
 # transmission-cli --
 alias transmission_cli='/usr/bin/transmission-cli -b -v -er -w ~/Downloads/ -u 50 $1'
 
