@@ -183,6 +183,7 @@ export GIT='$HOME/Github/'
 
 # command alias --
 alias vim='/usr/bin/nvim'
+alias bat='/usr/bin/bat --theme TwoDark -pp $1'
 alias ls="/bin/ls $LS_OPTIONS -CFtr"
 alias l="/bin/ls $LS_OPTIONS -lhFtr"
 alias la="/bin/ls $LS_OPTIONS -lAhFtr"
