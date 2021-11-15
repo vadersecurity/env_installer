@@ -8,6 +8,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 # PATH --
 export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/bin
 export PATH=/usr/bin:/usr/local/bin:/usr/sbin:$PATH
+export PATH=$PATH:$HOME/.gem/ruby/3.0.0/bin:/opt/metasploit/tools/exploit
 
 # tmux --
 # comment out the mux if you dont want it
