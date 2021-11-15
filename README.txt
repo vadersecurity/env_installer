@@ -33,7 +33,8 @@
 -       - add displays.sh to autorun.sh
 -   - add your own
 - rofi simple switcher - drun / combi
-      -> cd ~/.local/share/rofi ; git clone https://github.com/lr-tech/rofi-themes-collection.git
+      -> cd ~/.local/share/rofi ; \
+      git clone https://github.com/lr-tech/rofi-themes-collection.git
 -     -> run: rofi-theme-selector
 - picom-jonaburg-git transparency:
       -> https://github.com/jonaburg/picom
