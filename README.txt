@@ -7,6 +7,8 @@
 - git clone https://github.com/vadersecurity/env_installer.git
 - cd env_installer ; python env_installer.py
 
+- NOTE: DO NOT run the script as sudo. yay takes care of this for you.
+
 # About --
 - oh-my-zsh: 
 -   custom exploitation based .zshrc
