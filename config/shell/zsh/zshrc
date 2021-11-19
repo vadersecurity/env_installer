@@ -233,6 +233,9 @@ alias httpx_update='GO111MODULE=on go install github.com/projectdiscovery/httpx/
 alias subfiner_update='GO111MODULE=on go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest'
 alias naabu_update='GO111MODULE=on go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest'
 
+# dalfox --
+alias update_dalfox='GO111MODULE=on go install github.com/hahwul/dalfox/v2@latest'
+
 # transmission-cli --
 alias transmission_cli='/usr/bin/transmission-cli -b -v -er -w ~/Downloads/ -u 50 $1'
 
