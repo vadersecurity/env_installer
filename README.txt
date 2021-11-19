@@ -8,6 +8,7 @@
 - cd env_installer ; python env_installer.py
 
 - NOTE: DO NOT run the script as sudo. yay takes care of this for you.
+- Example: python env_install.py install dualfade
 
 # About --
 - oh-my-zsh: 
