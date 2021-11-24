@@ -45,7 +45,7 @@ def start_package_installer():
         pac_p_installer = subprocess.run(['/sbin/yay', '-S', 'zsh', 'picom-jonaburg-git', 'rofi', 'grc', 'tree', 'neovim', 'alacritty',  \
                                           'alacritty-themes', 'ranger', 'fzf', 'fd', 'amass', 'gospider', 'go', 'eog', 'nautilus', 'flameshot', 'feh', \
                                           'tmux', 'httpx', 'nuclei', 'dnsx', 'waybackurls', 'subfinder', 'zdns', 'hakrawler', 'screen', 'mlocate', \
-                                          'nmap', 'gobuster', 'dirsearch', 'bat', 'keepassxc'], \
+                                          'nmap', 'gobuster', 'dirsearch', 'bat', 'keepassxc', 'spectrwm', 'slock'], \
                                          stdin=None, stdout=None, stderr=None, shell=False)
         print('[+] Installing packages: %d' %pac_p_installer.returncode)
         if ('%d' %pac_p_installer.returncode) != 0:
