@@ -66,10 +66,14 @@ def zsh_install():
     print('[+] Installing oh-my-zsh:')
     try:
         home = str(path.dirname('/home/%s/') % arg2)
-        repo = "".join([home, '/.oh-my-zsh'])
+        zsh_repo = "".join([home, '/.oh-my-zsh'])
+        tpm_repo = "".join([home, '/.tmux/plugins'])
         """ clone oh-my-zsh -- """
-        om_zsh_clone = subprocess.check_call(['/bin/git', 'clone', 'https://github.com/ohmyzsh/ohmyzsh.git', repo])
+        om_zsh_clone = subprocess.check_call(['/bin/git', 'clone', 'https://github.com/ohmyzsh/ohmyzsh.git', zsh_repo])
         print('[+] Cloning repository: %d' %om_zsh_clone)
+        """ clone tmux tpm plugin manager -- """
+        om_tpm_clone = subprocess.check_call(['/bin/git', 'clone', 'https://github.com/tmux-plugins/tpm.git', tpm_repo])
+        print('[+] Cloning repository: %d' %om_tpm_clone)
 
         """ check for existing .zshrc / back it up -- """
         """ copy new .zshrc into place -- """
