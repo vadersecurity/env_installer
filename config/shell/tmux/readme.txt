@@ -1,10 +1,13 @@
 # For a full tmux experience --
+# the tmux.conf included is a generic base config --
 
 # install --
 # https://github.com/gpakosz/.tmux
 
 # install tpm plugins and reload --
 # tmux source-file ~/.tmux.conf
+
+# update your config file installed by oh-my-tmux
 
 ~/.tmux.conf 
 setw -g xterm-keys on
