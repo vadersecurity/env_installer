@@ -202,7 +202,7 @@ def install_missing_apps():
         yay_p_update = subprocess.check_call(['/sbin/yay', '-Syu'])
         print('[+] Updating packages: %d' %yay_p_update)
         yay_p_installer = subprocess.run(['/sbin/yay', '-S', 'obsidian-appimage', 'bmz-cursor-theme-git', 'nerd-fonts-complete', 'virtualbox', \
-                                                 'docker', 'gotop', 'the_silver_searcher'], \
+                                                 'docker', 'gotop', 'the_silver_searcher', 'firejail', 'hardened-malloc-git'], \
                                                 stdin=None, stdout=None, stderr=None, shell=False)
         print('\n[+] Installing aur packages: %d' %yay_p_installer.returncode)
         print('[i] yay zsh archlinux plugin cmd ref:')
