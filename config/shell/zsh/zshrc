@@ -355,7 +355,7 @@ git_BUILD_SHA() {
 
 # update with creds as needed --
 start_cli_ProtonVpn() {
-    cd ~/.encrypted/proton_ovpn ; /sbin/sudo /usr/bin/openvpn --config $1 --auth-user-pass ~/.encrypted/creds.txt
+    cd ~/.encrypted/proton_ovpn ; /sbin/sudo /usr/bin/openvpn --config $1 --auth-user-pass --auth-nocache ~/.encrypted/creds.txt
 }
 
 # wpa --
