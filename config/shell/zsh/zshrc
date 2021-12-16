@@ -366,6 +366,16 @@ start_Wireless() {
     /sbin/sudo /sbin/dhclient wlp59s0
 }
 
+# crawl target javascript --
+# retire.js enum --
+start_js_Enum() {
+    echo "[+] starting js fetch / retire enum --"
+    /usr/bin/mkdir -p /tmp/scripts/ && cd /tmp/scripts/ ; /usr/bin/gospider -v -s $1 -u web --json | ag '^{.*?\.js' | jq .output \
+        | tr -d '"' | grep http | xargs -L1 curl -sk -O ; \
+        /usr/bin/retire --js --verbose --nocache --jspath /tmp/scripts --colors ; \
+        echo "[i] Done."
+}
+
 # mm / shoutz @worldunruled --
 # updated @dualfade --
 # yain amass gospider httpx waybackurls subfinder \
