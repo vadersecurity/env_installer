@@ -393,6 +393,10 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
+    -- dualfade / flameshot
+    awful.key({ modkey,  "Shift"  }, "f", function () awful.spawn("flameshot gui") end,
+              {description = "flameshot", group = "launcher"}),
+
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ altkey, "Shift"   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
