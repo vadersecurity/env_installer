@@ -370,7 +370,7 @@ start_Wireless() {
 # retire.js enum --
 start_js_Enum() {
     echo "[+] starting js fetch / retire enum --"
-    /usr/bin/mkdir -p /tmp/scripts/ && cd /tmp/scripts/ ; /usr/bin/gospider -v -s $1 -u web --json | ag '^{.*?\.js' | jq .output \
+    /usr/bin/mkdir -p /tmp/scripts/ && cd /tmp/scripts/ ; /usr/bin/gospider -v -s $1 -d 1 -t 2 -u web --json | ag 'javascript' | jq .output \
         | tr -d '"' | grep http | xargs -L1 curl -sk -O ; \
         /usr/bin/retire --js --verbose --nocache --jspath /tmp/scripts --colors ; \
         echo "[i] Done."
