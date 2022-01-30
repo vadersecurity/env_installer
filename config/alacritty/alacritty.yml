@@ -103,11 +103,13 @@ font:
 
 # transparent --
 # https://wiki.gentoo.org/wiki/Alacritty
-background_opacity: 0.8 # value range is 0 ~ 1
+# background_opacity: 0.8 # value range is 0 ~ 1
+# updated below --
 
 # https://github.com/alacritty/alacritty/issues/168
 window:
   decorations: none
+  opacity: 0.8
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
