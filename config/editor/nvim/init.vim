@@ -15,6 +15,7 @@ Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
 Plug 'neovim/pynvim'
 Plug 'mhinz/vim-startify'
+Plug 'xiyaowong/nvim-cursorword'
 
 " Aethetics - Additional
 Plug 'nightsense/nemo'
@@ -25,6 +26,9 @@ Plug 'joshdick/onedark.vim'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'arcticicestudio/nord-vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'bcicen/vim-vice'
+Plug 'projekt0n/github-nvim-theme'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 
 " Functionalities
 Plug 'tpope/vim-fugitive'
@@ -38,6 +42,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/vim-goimports'
+Plug 'airblade/vim-gitgutter'
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -54,7 +59,6 @@ Plug 'chrisbra/Colorizer'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'vim-scripts/loremipsum'
 "Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
@@ -82,16 +86,22 @@ let g:goimports_simplify = 1
 """ Coloring
 " palenight options
 " https://github.com/drewtempelmeyer/palenight.vim
+" https://github.com/bcicen/vim-vice
+" https://bit.ly/3i5qnU4
 set background=dark
-colorscheme palenight
+
+" https://github.com/projekt0n/github-nvim-theme
+"colorscheme onedark
+colorscheme github_dark
+
 highlight Pmenu guibg=white guifg=black gui=bold
 highlight Comment gui=bold
 highlight Normal gui=none
 highlight NonText guibg=none
 syntax on
 
-let g:lightline = { 'colorscheme': 'palenight' }
-let g:airline_theme = "palenight"
+let g:lightline = { 'colorscheme': 'vice' }
+let g:airline_theme = "vice"
 let g:palenight_terminal_italics=1
 
 if (has("nvim"))
@@ -102,7 +112,7 @@ if (has("termguicolors"))
 endif
 
 " Opaque Background (Comment out to use terminal's profile)
-"set termguicolors
+set termguicolors
 
 " Transparent Background (For i3 and compton)
 highlight Normal guibg=NONE ctermbg=NONE
@@ -119,7 +129,11 @@ set wrap breakindent
 set encoding=utf-8
 set number
 set title
+
+" fix up cursonline
 set cursorline
+hi CursorLineNr guifg=#af00af
+hi! CursorWord cterm=underline gui=underline
 
 """ Plugin Configurations
 
@@ -186,6 +200,11 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" vim-gitgutter
+" https://github.com/airblade/vim-gitgutter
+"let g:gitgutter_highlight_lines = 1
+"let g:gitgutter_highlight_linenrs = 1
+
 """ Filetype-Specific Configurations
 
 " HTML, XML, Jinja
@@ -217,7 +236,7 @@ nmap <leader>q :NERDTreeToggle<CR>
 nmap \ <leader>q
 nmap <leader>w :TagbarToggle<CR>
 nmap <leader>ee :Colors<CR>
-nmap <leader>ea :AirlineTheme 
+nmap <leader>ea :AirlineTheme
 nmap <leader>e1 :call ColorDracula()<CR>
 nmap <leader>e2 :call ColorSeoul256()<CR>
 nmap <leader>e3 :call ColorForgotten()<CR>
