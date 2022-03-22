@@ -2,12 +2,14 @@
 # This script sets up and slick working Awesome WM 4.x exploitation enviromment.
 # It is tailored for those that are very command line saavy.
 
-# Install --
+# How to Install --
+- MAKE SURE: you are not root!! This should be run from your local system account.
+- NOTE: DO NOT run the script as sudo. yay takes care of this for you and wil ask you for your password.
+
 - sudo pacman -Syu git yay python awesome
 - git clone https://github.com/vadersecurity/env_installer.git
 - cd env_installer ; python env_install.py
 
-- NOTE: DO NOT run the script as sudo. yay takes care of this for you.
 - Example: python env_install.py install dualfade
 
 # About --
