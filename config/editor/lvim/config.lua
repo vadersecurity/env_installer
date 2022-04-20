@@ -12,6 +12,7 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "tokyonight"
+-- lvim.colorscheme = "duskfox"
 lvim.line_wrap_cursor_movement = false
 vim.g.tokyonight_style = "storm"
 vim.g.tokyonight_transparent = true
@@ -25,9 +26,9 @@ vim.opt.mouse = ''
 -- vim.opt.ww = ''
 
 -- tab stop --
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 -- https://bit.ly/3iGV41W --
 -- vim.cmd("map 0 ^")
@@ -126,23 +127,29 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { command = "black", filetypes = { "python" } },
+  { command = "isort", filetypes = { "python" } },
+  {
+    -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+    command = "prettier",
+    ---@usage arguments to pass to the formatter
+    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    extra_args = { "--print-with", "100" },
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "typescript", "typescriptreact" },
+  },
+}
 
 -- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  {
+    command = "eslint_d",
+    filetypes = { "typescript", "typescriptreact" },
+  },
+}
 -- linters.setup {
 --   { command = "flake8", filetypes = { "python" } },
 --   {
@@ -162,6 +169,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- Additional Plugins
 lvim.plugins = {
     {"folke/tokyonight.nvim"},
+    {"EdenEast/nightfox.nvim"},
+    {"projekt0n/github-nvim-theme"},
     {"honza/vim-snippets"},
   {
     "SirVer/ultisnips",
@@ -174,7 +183,6 @@ lvim.plugins = {
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
     end
   },
-    {"projekt0n/github-nvim-theme"},
     {"folke/trouble.nvim", cmd = "TroubleToggle"},
     {"thaerkh/vim-indentguides"},
     {"cappyzawa/trim.nvim"},
@@ -186,6 +194,13 @@ lvim.plugins = {
     config = function()
       require("todo-comments").setup()
     end,
+  },
+  -- https://github.com/mattn/vim-gist
+  -- https://www.lunarvim.org/plugins/02-extra-plugins.html#vim-gist
+  {
+  "mattn/vim-gist",
+  event = "BufRead",
+  requires = "mattn/webapi-vim",
   },
 }
 
