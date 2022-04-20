@@ -55,6 +55,10 @@
 - for full neovim dev IDE install w/ CoC language engine plugins
 - manual setup link --
     -> https://github.com/vadersecurity/env_installer/tree/main/config/editor/nvim
+- neovim note: 042020221
+- I have recently started using Lunarvim; Very nice; fully functional neovim based ide.
+    -> https://github.com/LunarVim/LunarVim
+    -> config.lua added in editor/lvim/config.lua
 
 - everything needs more testing
 - it's free; and hopefully useful ;)
