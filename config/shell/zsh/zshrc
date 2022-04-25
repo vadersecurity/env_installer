@@ -232,6 +232,7 @@ alias nuclei_update='GO111MODULE=on go install github.com/projectdiscovery/nucle
 alias httpx_update='GO111MODULE=on go install github.com/projectdiscovery/httpx/cmd/httpx@latest'
 alias subfiner_update='GO111MODULE=on go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest'
 alias naabu_update='GO111MODULE=on go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest'
+alias interact_update='GO111MODULE=on go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest'
 
 # dalfox --
 alias update_dalfox='GO111MODULE=on go install github.com/hahwul/dalfox/v2@latest'
