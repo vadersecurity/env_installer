@@ -12,9 +12,11 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "tokyonight"
+vim.g.tokyonight_style = "storm"
+
+-- alt theme
 -- lvim.colorscheme = "duskfox"
 lvim.line_wrap_cursor_movement = false
-vim.g.tokyonight_style = "storm"
 vim.g.tokyonight_transparent = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
@@ -127,18 +129,36 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup {
+--   { command = "black", filetypes = { "python" } },
+--   { command = "isort", filetypes = { "python" } },
+--   {
+--     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+--     command = "prettier",
+--     ---@usage arguments to pass to the formatter
+--     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+--     extra_args = { "--print-with", "100" },
+--     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+--     filetypes = { "typescript", "typescriptreact" },
+--   },
+-- }
+
+-- https://github.com/LunarVim/LunarVim/issues/1747
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black", filetypes = { "python" } },
-  { command = "isort", filetypes = { "python" } },
+--   { command = "black", filetypes = { "python" } },
+--   { command = "isort", filetypes = { "python" } },
   {
-    -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-    command = "prettier",
-    ---@usage arguments to pass to the formatter
-    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-    extra_args = { "--print-with", "100" },
-    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "typescript", "typescriptreact" },
+    exe = "prettier",
+    filetypes = {
+      "javascriptreact",
+      "javascript",
+      "typescriptreact",
+      "typescript",
+      "json",
+      "markdown",
+    },
   },
 }
 
@@ -202,6 +222,10 @@ lvim.plugins = {
   event = "BufRead",
   requires = "mattn/webapi-vim",
   },
+  -- https://prettier.io/
+  -- yain prettier
+  -- :Prettier
+  {"prettier/vim-prettier"},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
