@@ -147,11 +147,11 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- https://github.com/LunarVim/LunarVim/issues/1747
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black", filetypes = { "python" } },
-  { command = "isort", filetypes = { "python" } },
   {
-    exe = "prettier",
+    command = "prettier",
+    extra_args = { "--print-with", "100" },
     filetypes = {
+      "python",
       "javascriptreact",
       "javascript",
       "typescriptreact",
