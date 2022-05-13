@@ -27,10 +27,14 @@ vim.opt.mouse = ''
 -- disable cursor wrapping; whichwrap --
 -- vim.opt.ww = ''
 
+-- https://bit.ly/3Pm9Qdy --
 -- tab stop --
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.colorcolumn = "99999"
+vim.opt.wrap = false
+vim.opt.updatetime = 300
 
 -- https://bit.ly/3iGV41W --
 -- vim.cmd("map 0 ^")
@@ -188,10 +192,10 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-    {"folke/tokyonight.nvim"},
-    {"EdenEast/nightfox.nvim"},
-    {"projekt0n/github-nvim-theme"},
-    {"honza/vim-snippets"},
+  { "folke/tokyonight.nvim" },
+  { "EdenEast/nightfox.nvim" },
+  { "projekt0n/github-nvim-theme" },
+  { "honza/vim-snippets" },
   {
     "SirVer/ultisnips",
     requires = 'honza/vim-snippets', rtp = '.',
@@ -203,12 +207,12 @@ lvim.plugins = {
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
     end
   },
-    {"folke/trouble.nvim", cmd = "TroubleToggle"},
-    {"thaerkh/vim-indentguides"},
-    {"cappyzawa/trim.nvim"},
+  { "folke/trouble.nvim", cmd = "TroubleToggle" },
+  { "thaerkh/vim-indentguides" },
+  { "cappyzawa/trim.nvim" },
 
   -- https://github.com/folke/todo-comments.nvim
-    {
+  {
     "folke/todo-comments.nvim",
     event = "BufRead",
     config = function()
@@ -218,14 +222,14 @@ lvim.plugins = {
   -- https://github.com/mattn/vim-gist
   -- https://www.lunarvim.org/plugins/02-extra-plugins.html#vim-gist
   {
-  "mattn/vim-gist",
-  event = "BufRead",
-  requires = "mattn/webapi-vim",
+    "mattn/vim-gist",
+    event = "BufRead",
+    requires = "mattn/webapi-vim",
   },
   -- https://prettier.io/
   -- yain prettier
   -- :Prettier
-  {"prettier/vim-prettier"},
+  { "prettier/vim-prettier" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
