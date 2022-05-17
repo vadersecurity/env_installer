@@ -103,9 +103,8 @@ font:
 
 # transparent --
 # https://wiki.gentoo.org/wiki/Alacritty
-# background_opacity: 0.8 # value range is 0 ~ 1
-# updated below --
-
+#background_opacity: 0.8 # value range is 0 ~ 1
+# update -> see below
 # https://github.com/alacritty/alacritty/issues/168
 window:
   decorations: none
@@ -113,29 +112,37 @@ window:
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
-# Colors (Tomorrow Night Bright)
+# github Alacritty Colors
+# TokyoNight Alacritty Colors
 colors:
   # Default colors
   primary:
-    background: '#1B1D1E'
-    foreground: '#F8F8F2'
+    background: '#292C3E'
+    foreground: '#EBEBEB'
+
+  # Cursor colors
+  cursor:
+    text: '#FF261E'
+    cursor: '#FF261E'
+
   # Normal colors
   normal:
-    black: '#333333'
-    red: '#C4265E'
-    green: '#86B42B'
-    yellow: '#B3B42B'
-    blue: '#6A7EC8'
-    magenta: '#8C6BC8'
-    cyan: '#56ADBC'
-    white: '#E3E3DD'
+    black: '#0d0d0d'
+    red: '#FF301B'
+    green: '#A0E521'
+    yellow: '#FFC620'
+    blue: '#1BA6FA'
+    magenta: '#8763B8'
+    cyan: '#21DEEF'
+    white: '#EBEBEB'
+
   # Bright colors
   bright:
-    black: '#666666'
-    red: '#F92672'
-    green: '#A6E22E'
-    yellow: '#E2E22E'
-    blue: '#819AFF'
-    magenta: '#AE81FF'
-    cyan: '#66D9EF'
-    white: '#F8F8F2'
+    black: '#6D7070'
+    red: '#FF4352'
+    green: '#B8E466'
+    yellow: '#FFD750'
+    blue: '#1BA6FA'
+    magenta: '#A578EA'
+    cyan: '#73FBF1'
+    white: '#FEFEF8'
