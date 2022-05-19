@@ -1,0 +1,3 @@
+#!/bin/sh
+# thanks @anunna --
+dmenu_run -nb '#000000' -nf '#8d4e85' -sb '#800080' -sf '#000000' -p 'run' -fn 'Ubuntu Nerd Font:size=8:antialias=true'
