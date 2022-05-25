@@ -57,7 +57,7 @@ mic() {
 #VPN
 
 vpn() {
-    state="$(ip a | grep proton0 | grep inet | wc -l)"
+    state="$(ip a | grep 'proton0\|tun0' | grep inet | wc -l)"
     if [ $state = 1 ]; then
         echo "on"
     else
@@ -120,7 +120,7 @@ network() {
 
 #BAR
 
-#SLEEP_SEC=2
+SLEEP_SEC=2
 #loops forever outputting a line every SLEEP_SEC secs
     while :; do
         echo "$(cpu) |  $(mem) |  $(hdd) |  $(vpn) |  $(vol) | $(bat) | $(network) |"
