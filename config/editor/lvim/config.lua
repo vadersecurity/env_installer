@@ -84,10 +84,11 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -117,6 +118,9 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- ---@usage Select which servers should be configured manually. Requires `:LvimCacheReset` to take effect.
 -- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
 -- vim.list_extend(lvim.lsp.override, { "pyright" })
+
+-- updated options --
+-- lvim.lsp.automatic_configuration.skipped_servers = { "pyright" }
 
 -- ---@usage setup a server -- see: https://www.lunarvim.org/languages/#overriding-the-default-configuration
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
@@ -175,8 +179,8 @@ linters.setup {
   },
 }
 -- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
+-- { command = "flake8", filetypes = { "python" } },
+-- {
 --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
 --     command = "shellcheck",
 --     ---@usage arguments to pass to the formatter
@@ -187,7 +191,7 @@ linters.setup {
 --     command = "codespell",
 --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 --     filetypes = { "javascript", "python" },
---   },
+-- },
 -- }
 
 -- Additional Plugins
