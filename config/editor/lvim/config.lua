@@ -105,6 +105,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "java",
   "yaml",
   "go",
+  "ruby",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -151,6 +152,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     filetypes = { "typescript", "typescriptreact" },
 --   },
 -- }
+
+-- ruby solargraph fix --
+-- https://github.com/LunarVim/LunarVim/issues/945 --
+require('lspconfig').solargraph.setup {
+  cmd = { "solargraph", "stdio" }
+}
 
 -- https://github.com/LunarVim/LunarVim/issues/1747
 local formatters = require "lvim.lsp.null-ls.formatters"
