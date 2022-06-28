@@ -27,6 +27,20 @@ export GO111MODULE=on
 # https://golang.org/dl/
 export PATH=/usr/local/go/bin:$PATH
 
+# Python pyenv bullshit --
+# https://realpython.com/intro-to-pyenv/
+export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+
+# diable pip keyring shit --
+# https://pypi.org/project/keyring/ --
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
+
+# ruby --
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
