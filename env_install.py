@@ -201,7 +201,7 @@ def install_missing_apps():
     try:
         yay_p_update = subprocess.check_call(['/sbin/yay', '-Syu'])
         print('[+] Updating packages: %d' %yay_p_update)
-        yay_p_installer = subprocess.run(['/sbin/yay', '-S', 'obsidian-appimage', 'bmz-cursor-theme-git', 'nerd-fonts-complete', 'virtualbox', \
+        yay_p_installer = subprocess.run(['/sbin/yay', '-S', 'insomnia-bin', 'bmz-cursor-theme-git', 'nerd-fonts-complete', 'virtualbox', \
                                                 'bash-language-server', 'pyright', 'prettier', 'cargo', 'nodejs', 'npm', 'yarn', 'docker', 'gotop', \
                                                 'the_silver_searcher', 'firejail', 'hardened-malloc-git'], \
                                                 stdin=None, stdout=None, stderr=None, shell=False)
@@ -215,6 +215,7 @@ def install_missing_apps():
         i_gotop = subprocess.check_call(['/usr/bin/go', 'get', 'github.com/cjbassi/gotop'])
         print('\n[+] Fetching gotop latest src: %d' %i_gotop)
         print('[+] Creating go directory struct')
+        print('[i] do not forget to install ruby deps: gem install solargraph rubocop')
     except subprocess.CalledProcessError as err:
         print('[!] Installation failed.')
         print('ERROR:', err)
