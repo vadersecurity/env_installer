@@ -69,5 +69,8 @@
 - screenshots
 
 - themes / widgets:
+
+- NOTE: if you attempt to login and awesome logs you right out, you are missing awesome-copycats
+- NOTE: in this case just move the default /etc/xdg/awesome/rc.lua -> ~/.config/awesome/rc.lua and then login.
 - https://github.com/lcpz/awesome-copycats
 - https://github.com/streetturtle/awesome-wm-widgets
