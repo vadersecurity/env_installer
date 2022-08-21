@@ -57,7 +57,7 @@ mic() {
 #VPN
 
 vpn() {
-    state="$(ip a | grep 'proton0\|tun0' | grep inet | wc -l)"
+    state="$(ip a | grep 'proton0\|tun0\|wg0' | grep inet | wc -l)"
     if [ $state = 1 ]; then
         echo "on"
     else
