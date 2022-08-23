@@ -19,24 +19,24 @@ lvim.format_on_save = true
 
 -- colorscheme
 -- https://github.com/EdenEast/nightfox.nvim
-lvim.colorscheme = "duskfox"
+-- lvim.colorscheme = "duskfox"
 -- lvim.colorscheme = "carbonfox"
 -- lvim.colorscheme = "terafox"
 -- lvim.colorscheme = "nordfox"
 
-require('nightfox').setup({
-  options = {
-    styles = {
-      comments = "italic",
-      keywords = "bold",
-      types = "italic,bold",
-    }
-  }
-})
+-- require('nightfox').setup({
+--   options = {
+--     styles = {
+--       comments = "italic",
+--       keywords = "bold",
+--       types = "italic,bold",
+--     }
+--   }
+-- })
 
 -- theme alt --
--- lvim.colorscheme = "tokyonight"
--- vim.g.tokyonight_style = "storm"
+lvim.colorscheme = "tokyonight"
+vim.g.tokyonight_style = "storm"
 
 lvim.line_wrap_cursor_movement = false
 vim.g.tokyonight_transparent = true
