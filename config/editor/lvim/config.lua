@@ -15,33 +15,12 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
--- lvim.colorscheme = "catppuccin"
-
--- colorscheme
--- https://github.com/EdenEast/nightfox.nvim
--- lvim.colorscheme = "duskfox"
--- lvim.colorscheme = "carbonfox"
--- lvim.colorscheme = "terafox"
--- lvim.colorscheme = "nordfox"
-
--- require('nightfox').setup({
---   options = {
---     styles = {
---       comments = "italic",
---       keywords = "bold",
---       types = "italic,bold",
---     }
---   }
--- })
-
--- theme alt --
+-- theme
+-- https://github.com/folke/tokyonight.nvim
 lvim.colorscheme = "tokyonight"
-vim.g.tokyonight_style = "storm"
 
+-- cursor-line
 lvim.line_wrap_cursor_movement = false
-vim.g.tokyonight_transparent = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 
 -- disable mouse
 vim.opt.mouse = ''
@@ -219,7 +198,7 @@ linters.setup {
   {
     command = "codespell",
     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "javascript", "python" },
+    filetypes = { "javascript", "python", "ruby" },
   },
 }
 
