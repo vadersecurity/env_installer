@@ -202,6 +202,20 @@ linters.setup {
   },
 }
 
+-- https://github.com/cappyzawa/trim.nvim
+require('trim').setup({
+  -- if you want to ignore markdown file.
+  -- you can specify filetypes.
+  disable = { "markdown" },
+
+  -- if you want to ignore space of top
+  patterns = {
+    [[%s/\s\+$//e]],
+    [[%s/\($\n\s*\)\+\%$//]],
+    [[%s/\(\n\n\)\n\+/\1/]],
+  },
+})
+
 -- Additional Plugins
 lvim.plugins = {
   { "catppuccin/nvim" },
