@@ -265,6 +265,14 @@ lvim.plugins = {
   { "prettier/vim-prettier" },
   -- https://github.com/sindrets/diffview.nvim
   { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
+  -- https://github.com/andymass/vim-matchup
+  {
+    "andymass/vim-matchup",
+    event = "CursorMoved",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
