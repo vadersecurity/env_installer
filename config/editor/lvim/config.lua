@@ -162,7 +162,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- ruby solargraph fix --
 -- https://github.com/LunarVim/LunarVim/issues/945 --
 require('lspconfig').solargraph.setup {
-  cmd = { "solargraph", "stdio" }
+  cmd = { "solargraph", "stdio" },
 }
 
 -- https://github.com/LunarVim/LunarVim/issues/1747
@@ -212,7 +212,6 @@ require('trim').setup({
   -- if you want to ignore markdown file.
   -- you can specify filetypes.
   disable = { "markdown" },
-
   -- if you want to ignore space of top
   patterns = {
     [[%s/\s\+$//e]],
@@ -223,24 +222,34 @@ require('trim').setup({
 
 -- Additional Plugins
 lvim.plugins = {
-  { "catppuccin/nvim" },
-  { "EdenEast/nightfox.nvim" },
-  { "projekt0n/github-nvim-theme" },
-  { "honza/vim-snippets" },
-  {
-    "SirVer/ultisnips",
-    requires = 'honza/vim-snippets', rtp = '.',
-    config = function()
-      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-      vim.g.UltiSnipsRemoveSelectModeMappings = 0
-    end
-  },
+  -- NOTE: these have been replaced w/ builtin; rafamadriz/friendly-snippets
+  -- https://www.lunarvim.org/docs/plugins/core-plugins-list
+  -- { "honza/vim-snippets" },
+  -- {
+  --   "SirVer/ultisnips",
+  --   requires = 'honza/vim-snippets', rtp = '.',
+  --   config = function()
+  --     vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+  --     vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+  --     vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+  --     vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+  --     vim.g.UltiSnipsRemoveSelectModeMappings = 0
+  --   end
+  -- },
   { "folke/trouble.nvim", cmd = "TroubleToggle" },
   { "thaerkh/vim-indentguides" },
   { "cappyzawa/trim.nvim" },
+  -- https://github.com/wfxr/minimap.vim
+  {
+    'wfxr/minimap.vim',
+    run = "cargo install --locked code-minimap",
+    cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
+    config = function()
+      vim.cmd("let g:minimap_width = 10")
+      vim.cmd("let g:minimap_auto_start = 1")
+      vim.cmd("let g:minimap_auto_start_win_enter = 1")
+    end,
+  },
 
   -- https://github.com/folke/todo-comments.nvim
   {
@@ -250,17 +259,12 @@ lvim.plugins = {
       require("todo-comments").setup()
     end,
   },
-  -- https://github.com/mattn/vim-gist
-  -- https://www.lunarvim.org/plugins/02-extra-plugins.html#vim-gist
-  {
-    "mattn/vim-gist",
-    event = "BufRead",
-    requires = "mattn/webapi-vim",
-  },
   -- https://prettier.io/
   -- yain prettier
   -- :Prettier
   { "prettier/vim-prettier" },
+  -- https://github.com/sindrets/diffview.nvim
+  { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
