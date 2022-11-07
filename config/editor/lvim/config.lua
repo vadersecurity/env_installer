@@ -117,6 +117,11 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+-- needed for matchup
+-- this should be a default with lunavrim settings
+-- https://github.com/andymass/vim-matchup/issues/262
+lvim.builtin.treesitter.matchup.enable = true
+
 -- generic LSP settings
 
 -- ---@usage disable automatic installation of servers
@@ -222,20 +227,14 @@ require('trim').setup({
 
 -- Additional Plugins
 lvim.plugins = {
-  -- NOTE: these have been replaced w/ builtin; rafamadriz/friendly-snippets
-  -- https://www.lunarvim.org/docs/plugins/core-plugins-list
-  -- { "honza/vim-snippets" },
-  -- {
-  --   "SirVer/ultisnips",
-  --   requires = 'honza/vim-snippets', rtp = '.',
-  --   config = function()
-  --     vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-  --     vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-  --     vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-  --     vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-  --     vim.g.UltiSnipsRemoveSelectModeMappings = 0
-  --   end
-  -- },
+  -- https://github.com/andymass/vim-matchup
+  {
+    "andymass/vim-matchup",
+    event = "CursorMoved",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
   { "folke/trouble.nvim", cmd = "TroubleToggle" },
   { "thaerkh/vim-indentguides" },
   { "cappyzawa/trim.nvim" },
@@ -265,15 +264,9 @@ lvim.plugins = {
   { "prettier/vim-prettier" },
   -- https://github.com/sindrets/diffview.nvim
   { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
-  -- https://github.com/andymass/vim-matchup
-  {
-    "andymass/vim-matchup",
-    event = "CursorMoved",
-    config = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end,
-  },
+
 }
+-- end func
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
