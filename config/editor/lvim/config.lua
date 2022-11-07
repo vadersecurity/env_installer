@@ -208,22 +208,9 @@ linters.setup {
   {
     command = "codespell",
     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "javascript", "python", "ruby" },
+    filetypes = { "javascript", "python", "ruby", "go" },
   },
 }
-
--- https://github.com/cappyzawa/trim.nvim
-require('trim').setup({
-  -- if you want to ignore markdown file.
-  -- you can specify filetypes.
-  disable = { "markdown" },
-  -- if you want to ignore space of top
-  patterns = {
-    [[%s/\s\+$//e]],
-    [[%s/\($\n\s*\)\+\%$//]],
-    [[%s/\(\n\n\)\n\+/\1/]],
-  },
-})
 
 -- Additional Plugins
 lvim.plugins = {
@@ -267,6 +254,20 @@ lvim.plugins = {
 
 }
 -- end func
+
+-- call trim after plugin load --
+-- https://github.com/cappyzawa/trim.nvim
+require('trim').setup({
+  -- if you want to ignore markdown file.
+  -- you can specify filetypes.
+  disable = { "markdown" },
+  -- if you want to ignore space of top
+  patterns = {
+    [[%s/\s\+$//e]],
+    [[%s/\($\n\s*\)\+\%$//]],
+    [[%s/\(\n\n\)\n\+/\1/]],
+  },
+})
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
