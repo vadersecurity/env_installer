@@ -164,10 +164,38 @@ lvim.builtin.treesitter.matchup.enable = true
 --   },
 -- }
 
--- ruby solargraph fix --
+-- NOTE: ruby solargraph fix --
 -- https://github.com/LunarVim/LunarVim/issues/945 --
-require('lspconfig').solargraph.setup {
-  cmd = { "solargraph", "stdio" },
+-- require('lspconfig').solargraph.setup {
+--   cmd = { "solargraph", "stdio" },
+-- }
+
+-- NOTE: https://github.com/LunarVim/LunarVim/issues/292
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "solargraph" })
+-- require("lspconfig").solargraph.setup({})
+--
+-- local null_ls = require("null-ls")
+-- local sources = {
+--   -- 	-- Formatters
+--   null_ls.builtins.diagnostics.rubocop,
+-- }
+--
+-- -- Enable the formatters and linters.
+-- null_ls.register({ sources = sources })
+
+-- NOTE: 22:27 briain@d
+-- fix telescope window sizing --
+lvim.builtin.telescope.pickers = {
+  find_files = {
+    layout_config = {
+      width = 0.80,
+    },
+  },
+  live_grep = {
+    layout_config = {
+      width = 0.80,
+    },
+  },
 }
 
 -- https://github.com/LunarVim/LunarVim/issues/1747
