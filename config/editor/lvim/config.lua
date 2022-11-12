@@ -279,19 +279,30 @@ lvim.plugins = {
 }
 -- end func
 
--- call trim after plugin load --
--- https://github.com/cappyzawa/trim.nvim
-require('trim').setup({
-  -- if you want to ignore markdown file.
-  -- you can specify filetypes.
-  disable = { "markdown" },
-  -- if you want to ignore space of top
-  patterns = {
-    [[%s/\s\+$//e]],
-    [[%s/\($\n\s*\)\+\%$//]],
-    [[%s/\(\n\n\)\n\+/\1/]],
-  },
-})
+-- https://github.com/folke/trouble.nvim
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Diagnostics",
+  t = { "<cmd>TroubleToggle<cr>", "trouble" },
+  w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
+  d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
+  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+},
+
+    -- call trim after plugin load --
+    -- https://github.com/cappyzawa/trim.nvim
+    require('trim').setup({
+      -- if you want to ignore markdown file.
+      -- you can specify filetypes.
+      disable = { "markdown" },
+      -- if you want to ignore space of top
+      patterns = {
+        [[%s/\s\+$//e]],
+        [[%s/\($\n\s*\)\+\%$//]],
+        [[%s/\(\n\n\)\n\+/\1/]],
+      },
+    })
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
