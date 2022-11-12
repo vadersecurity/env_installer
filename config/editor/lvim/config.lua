@@ -167,21 +167,17 @@ lvim.builtin.treesitter.matchup.enable = true
 -- NOTE: ruby solargraph fix --
 -- https://github.com/LunarVim/LunarVim/issues/945 --
 -- require('lspconfig').solargraph.setup {
---   cmd = { "solargraph", "stdio" },
+--   cmd = { "/home/dualfade/.local/share/gem/ruby/3.0.0/bin/solargraph", "stdio" },
 -- }
 
--- NOTE: https://github.com/LunarVim/LunarVim/issues/292
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "solargraph" })
--- require("lspconfig").solargraph.setup({})
---
--- local null_ls = require("null-ls")
--- local sources = {
---   -- 	-- Formatters
---   null_ls.builtins.diagnostics.rubocop,
--- }
---
--- -- Enable the formatters and linters.
--- null_ls.register({ sources = sources })
+-- enable sorbet
+-- https://sorbet.org/
+-- swiped and mod from; https://lsp.sublimetext.io/language_servers/#sorbet
+require("lspconfig").sorbet.setup {
+  cmd = {
+    "srb", "tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman"
+  },
+}
 
 -- NOTE: 22:27 briain@d
 -- fix telescope window sizing --
