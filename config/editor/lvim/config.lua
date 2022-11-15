@@ -323,7 +323,9 @@ require('code_runner').setup({
   -- put here the commands by filetype
   filetype = {
     java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
-    python = "python3 -u",
+    -- disable def; can hang and make biffer go crazy --
+    -- python = "python3 -u",
+    python = "cd $dir && python $fileName",
     typescript = "deno run",
     rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
     ruby = "cd $dir && ruby $fileName"
