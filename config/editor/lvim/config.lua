@@ -275,7 +275,21 @@ lvim.plugins = {
   { "prettier/vim-prettier" },
   -- https://github.com/sindrets/diffview.nvim
   { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
-
+  -- https://github.com/honza/vim-snippets
+  { "honza/vim-snippets" },
+  {
+    "SirVer/ultisnips",
+    requires = 'honza/vim-snippets', rtp = '.',
+    config = function()
+      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+      vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    end
+  },
+  -- https://github.com/CRAG666/code_runner.nvim
+  { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' },
 }
 -- end func
 
@@ -303,6 +317,18 @@ lvim.builtin.which_key.mappings["t"] = {
         [[%s/\(\n\n\)\n\+/\1/]],
       },
     })
+
+-- call code_runner after plugin loads --
+require('code_runner').setup({
+  -- put here the commands by filetype
+  filetype = {
+    java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    python = "python3 -u",
+    typescript = "deno run",
+    rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+    ruby = "cd $dir && ruby $fileName"
+  },
+})
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
