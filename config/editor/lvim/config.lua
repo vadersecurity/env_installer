@@ -15,17 +15,27 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 
--- theme
+-- set custom theme
 -- https://github.com/folke/tokyonight.nvim
-lvim.colorscheme = "tokyonight"
+-- lvim.colorscheme = "tokyonight"
+-- lvim.builtin.lualine.options.theme = "tokyonight"
+
+-- lvim.colorscheme = "duskfox"
+lvim.colorscheme = "carbonfox"
+
+require('nightfox').setup({
+  options = {
+    styles = {
+      comments = "italic",
+      keywords = "bold",
+      types = "italic,bold",
+    }
+  }
+})
 
 -- https://www.lunarvim.org/docs/configuration/statusline
 lvim.builtin.lualine.style = "lvim"
 lvim.builtin.lualine.sections.lualine_c = { "diff" }
-
--- set the theme ??
--- seams to be working --
-lvim.builtin.lualine.options.theme = "tokyonight"
 
 -- disable mouse
 vim.opt.mouse = ''
@@ -238,6 +248,8 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
+  -- https://github.com/EdenEast/nightfox.nvim
+  { "EdenEast/nightfox.nvim" },
   -- https://github.com/andymass/vim-matchup
   {
     "andymass/vim-matchup",
@@ -322,13 +334,14 @@ lvim.builtin.which_key.mappings["t"] = {
 require('code_runner').setup({
   -- put here the commands by filetype
   filetype = {
-    java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    -- java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
     -- disable def; can hang and make biffer go crazy --
     -- python = "python3 -u",
     python = "cd $dir && python $fileName",
     typescript = "deno run",
     rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-    ruby = "cd $dir && ruby $fileName"
+    ruby = "cd $dir && ruby $fileName",
+    go = "cd $dir && go run $fileName"
   },
 })
 
