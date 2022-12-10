@@ -20,8 +20,8 @@ lvim.format_on_save = true
 -- lvim.colorscheme = "tokyonight"
 -- lvim.builtin.lualine.options.theme = "tokyonight"
 
--- lvim.colorscheme = "duskfox"
-lvim.colorscheme = "carbonfox"
+lvim.colorscheme = "duskfox"
+-- lvim.colorscheme = "carbonfox"
 
 require('nightfox').setup({
   options = {
@@ -39,6 +39,10 @@ lvim.builtin.lualine.sections.lualine_c = { "diff" }
 
 -- disable mouse
 vim.opt.mouse = ''
+
+-- disable top tab(s) line
+-- https://vimhelp.org/options.txt.html
+vim.opt.showtabline = 0
 
 -- disable cursor wrapping; whichwrap --
 -- vim.opt.ww = ''
