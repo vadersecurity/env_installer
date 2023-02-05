@@ -17,10 +17,10 @@ lvim.format_on_save = true
 
 -- set custom theme
 -- https://github.com/folke/tokyonight.nvim
--- lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "tokyonight"
 -- lvim.builtin.lualine.options.theme = "tokyonight"
 
-lvim.colorscheme = "duskfox"
+-- lvim.colorscheme = "duskfox"
 -- lvim.colorscheme = "carbonfox"
 
 require('nightfox').setup({
@@ -141,7 +141,7 @@ lvim.builtin.treesitter.matchup.enable = true
 -- ---@usage disable automatic installation of servers
 -- lvim.lsp.automatic_servers_installation = false
 
--- ---@usage Select which servers should be configured manually. Requires `:LvimCacheReset` to take effect.
+-- ---@usage Select which servers should be configured manually. dependencies `:LvimCacheReset` to take effect.
 -- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
 -- vim.list_extend(lvim.lsp.override, { "pyright" })
 
@@ -180,30 +180,34 @@ lvim.builtin.treesitter.matchup.enable = true
 
 -- NOTE: ruby solargraph fix --
 -- https://github.com/LunarVim/LunarVim/issues/945 --
--- require('lspconfig').solargraph.setup {
---   cmd = { "/home/dualfade/.local/share/gem/ruby/3.0.0/bin/solargraph", "stdio" },
--- }
+require('lspconfig').solargraph.setup {
+  cmd = { "/home/dualfade/.local/share/gem/ruby/3.0.0/bin/solargraph", "stdio" },
+  -- cmd = { "/home/dualfade/.local/share/gem/ruby/3.0.0/bin/solargraph", "socket", "7658" },
+  -- system solargraph --
+  -- cmd = { "/usr/bin/solargraph", "stdio" },
+}
 
--- enable sorbet
+-- NOTE: enable sorbet-runtime
 -- https://sorbet.org/
 -- swiped and mod from; https://lsp.sublimetext.io/language_servers/#sorbet
-require("lspconfig").sorbet.setup {
-  cmd = {
-    "srb", "tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman"
-  },
-}
+-- require("lspconfig").sorbet.setup {
+--   cmd = {
+--     "srb", "tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman"
+--   },
+-- }
 
 -- NOTE: 22:27 briain@d
 -- fix telescope window sizing --
+-- ref: https://github.com/nvim-telescope/telescope.nvim --
 lvim.builtin.telescope.pickers = {
   find_files = {
     layout_config = {
-      width = 0.80,
+      vertical = { width = 0.5 }
     },
   },
   live_grep = {
     layout_config = {
-      width = 0.80,
+      width = 0.5,
     },
   },
 }
@@ -246,7 +250,7 @@ linters.setup {
   {
     command = "codespell",
     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "javascript", "python", "ruby", "go" },
+    filetypes = { "javascript", "python", "ruby", "eruby", "go" },
   },
 }
 
@@ -268,7 +272,7 @@ lvim.plugins = {
   -- https://github.com/wfxr/minimap.vim
   {
     'wfxr/minimap.vim',
-    run = "cargo install --locked code-minimap",
+    build = "cargo install --locked code-minimap",
     cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
     config = function()
       vim.cmd("let g:minimap_width = 20")
@@ -290,22 +294,23 @@ lvim.plugins = {
   -- :Prettier
   { "prettier/vim-prettier" },
   -- https://github.com/sindrets/diffview.nvim
-  { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
+  { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
   -- https://github.com/honza/vim-snippets
   { "honza/vim-snippets" },
-  {
-    "SirVer/ultisnips",
-    requires = 'honza/vim-snippets', rtp = '.',
-    config = function()
-      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-      vim.g.UltiSnipsRemoveSelectModeMappings = 0
-    end
-  },
+  -- https://github.com/SirVer/ultisnips
+  -- {
+  --   "SirVer/ultisnips",
+  --   dependencies = 'honza/vim-snippets', rtp = '.',
+  --   config = function()
+  --     vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+  --     vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+  --     vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+  --     vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+  --     vim.g.UltiSnipsRemoveSelectModeMappings = 0
+  --   end
+  -- },
   -- https://github.com/CRAG666/code_runner.nvim
-  { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' },
+  { 'CRAG666/code_runner.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 }
 -- end func
 
