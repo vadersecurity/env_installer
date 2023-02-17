@@ -45,20 +45,21 @@ vol() {
 
 #MIC
 
-mic() {
-    state="$()"
-    if [ state = 1 ]; then
-        echo "on"
-    else
-        echo "off"
-    fi
-}
+# mic() {
+#     state="$()"
+#     if [ state = 1 ]; then
+#         echo "on"
+#     else
+#         echo "off"
+#     fi
+# }
 
 #VPN
 
 vpn() {
-    state="$(ip a | grep 'proton0\|tun0\|wg0' | grep inet | wc -l)"
-    if [ $state = 1 ]; then
+    # state="$(ip a | grep 'wg0\|proton0\|tun0' | grep inet | wc -l)"
+    state="$(ip a sh | grep -E "wg[0-9].*?|tun[0-9].*?" | grep -c inet)"
+   if [ "$state" = 1 ]; then
         echo "on"
     else
         echo "off"
@@ -106,8 +107,10 @@ bat() {
 #NETWORK
 
 network() {
-    wire="$(ip a | grep enp0s31f6 | grep inet | wc -l)"
-    wifi="$(ip a | grep wlan0 | grep inet | wc -l)"
+    # wire="$(ip a | grep -E 'enp.*?' | grep 'inet' | wc -l)"
+    # wifi="$(ip a | grep -E 'wlan[0-9].*?' | grep 'inet' | wc -l)"
+    wire="$(ip a | grep 'enp[0-9].*?|eth[0-9].*?' | grep -c inet)"
+    wifi="$(ip a | grep -E 'wlan[0-9].*?' | grep -c inet)"
 
     if [ $wire = 1 ]; then
         echo ""
@@ -118,11 +121,17 @@ network() {
     fi
 }
 
-#BAR
+# UTC CLOCK
+
+universal_time() {
+  TZ=UTC date -R | awk '{print $4,$5,$6}'
+}
+
+# FINAL BAR
 
 SLEEP_SEC=2
 #loops forever outputting a line every SLEEP_SEC secs
     while :; do
-        echo "$(cpu) |  $(mem) |  $(hdd) |  $(vpn) |  $(vol) | $(bat) | $(network) |"
+      echo "$(cpu) |  $(mem) |  $(hdd) |  $(vpn) |  $(vol) | $(bat) | $(network) | $(universal_time) |"
         sleep $SLEEP_SEC
     done
