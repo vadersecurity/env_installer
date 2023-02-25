@@ -37,8 +37,11 @@ require('nightfox').setup({
 lvim.builtin.lualine.style = "lvim"
 lvim.builtin.lualine.sections.lualine_c = { "diff" }
 
--- disable mouse
-vim.opt.mouse = ''
+-- enable mouse --
+vim.opt.mouse = 'a'
+
+-- disable mouse --
+-- vim.opt.mouse = ''
 
 -- disable top tab(s) line
 -- https://vimhelp.org/options.txt.html
@@ -311,8 +314,39 @@ lvim.plugins = {
   -- },
   -- https://github.com/CRAG666/code_runner.nvim
   { 'CRAG666/code_runner.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+  -- https://github.com/mfussenegger/nvim-dap --
+  -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation --
+  { 'mfussenegger/nvim-dap' },
 }
 -- end func
+
+-- debugger --
+-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#javascript --
+local dap = require('dap')
+dap.adapters.node2 = {
+  type = 'executable',
+  command = 'node',
+  args = { os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
+}
+dap.configurations.javascript = {
+  {
+    name = 'Launch',
+    type = 'node2',
+    request = 'launch',
+    program = '${file}',
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = 'inspector',
+    console = 'integratedTerminal',
+  },
+  {
+    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+    name = 'Attach to process',
+    type = 'node2',
+    request = 'attach',
+    processId = require 'dap.utils'.pick_process,
+  },
+}
 
 -- https://github.com/folke/trouble.nvim
 lvim.builtin.which_key.mappings["t"] = {
@@ -350,7 +384,9 @@ require('code_runner').setup({
     typescript = "deno run",
     rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
     ruby = "cd $dir && ruby $fileName",
-    go = "cd $dir && go run $fileName"
+    go = "cd $dir && go run $fileName",
+    -- launch node with debugger --
+    javascript = "cd $dir && node --inspect $fileName"
   },
 })
 
